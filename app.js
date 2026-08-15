@@ -115,7 +115,10 @@
   }
   function sectorName(id) { const s = SECTOR_MAP[id]; return s ? s.name : id; }
   function sectorColor(id) { const s = SECTOR_MAP[id]; return s ? s.color : '#94a3b8'; }
-  function initials(name) { return String(name || '?').slice(0, 2); }
+  function initials(name) {
+    const base = state && state.lang && state.lang !== 'zh' ? enNameOf(name) : name;
+    return String(base || '?').slice(0, 2);
+  }
   function levelInfo(lv) {
     if (lv === 'high') return { label: '高', cls: 'red' };
     if (lv === 'medium') return { label: '中', cls: 'amber' };
@@ -156,8 +159,9 @@
         const k = keys[i];
         const entry = lookup[k];
         const zhVal = k;
-        const enVal = entry.en || k;
-        const target = lang === 'zh' ? zhVal : (entry[lang] || enVal);
+        const hasEn = Object.prototype.hasOwnProperty.call(entry, 'en');
+        const enVal = hasEn ? entry.en : k;
+        const target = lang === 'zh' ? zhVal : (Object.prototype.hasOwnProperty.call(entry, lang) ? entry[lang] : enVal);
         if (target !== k) pairs.push([k, target]);
         if (enVal.length >= 4 && enVal !== zhVal) pairs.push([enVal, target]);
         ['en', 'es', 'pt', 'fr'].forEach(function (l) {
@@ -165,15 +169,30 @@
           if (val && val !== k && val.length >= 4) toZh.push([val, k]);
         });
       }
+      const han = /[\u3400-\u4dbf\u4e00-\u9fff]/;
+      function replacePair(text, pk, rep) {
+        if (pk.length === 1 && han.test(pk)) {
+          const parts = text.split(pk);
+          let res = parts[0];
+          for (let j = 1; j < parts.length; j++) {
+            const before = parts[j - 1].slice(-1);
+            const after = parts[j].charAt(0);
+            const standalone = !(han.test(before) || han.test(after));
+            res += (standalone ? rep : pk) + parts[j];
+          }
+          return res;
+        }
+        return text.split(pk).join(rep);
+      }
       toZh.sort(function (a, b) { return b[0].length - a[0].length; });
       for (let j = 0; j < toZh.length; j++) {
         const pk = toZh[j][0], rep = toZh[j][1];
-        if (out.indexOf(pk) >= 0) out = out.split(pk).join(rep);
+        if (out.indexOf(pk) >= 0) out = replacePair(out, pk, rep);
       }
       pairs.sort(function (a, b) { return b[0].length - a[0].length; });
       for (let j = 0; j < pairs.length; j++) {
         const pk = pairs[j][0], rep = pairs[j][1];
-        if (out.indexOf(pk) >= 0) out = out.split(pk).join(rep);
+        if (out.indexOf(pk) >= 0) out = replacePair(out, pk, rep);
       }
       return out;
     }
@@ -194,11 +213,16 @@
         }
       });
     });
-    document.querySelectorAll('select option').forEach(function (opt) {
+    document.querySelectorAll('select:not(#lang-select) option').forEach(function (opt) {
       const v = opt.textContent;
       const t = translateText(v);
       if (t !== v) opt.textContent = t;
     });
+    const langSel = document.getElementById('lang-select');
+    if (langSel) {
+      const zhOpt = langSel.querySelector('option[value="zh"]');
+      if (zhOpt) zhOpt.textContent = lang === 'zh' ? '中文' : I18N.phrase('中文', lang);
+    }
     document.documentElement.lang = lang === 'zh' ? 'zh-CN' : lang;
     document.title = translateText(document.title);
   }
@@ -267,6 +291,10 @@
     (root || document).querySelectorAll('[data-icon]').forEach(function (el) {
       if (!el.querySelector('svg')) el.innerHTML = icon(el.getAttribute('data-icon'));
     });
+  }
+
+  function tl(text) {
+    return I18N && I18N.phrase ? I18N.phrase(text, state.lang) : text;
   }
 
   function toast(msg, type) {
@@ -493,7 +521,7 @@
       lines.push('- ' + d.date + ' ' + d.company + ' ' + d.round + ' ' + money(d.amount) + ' 领投: ' + d.lead);
     });
     downloadText('capital-flow-overview.txt', lines.join('\n'));
-    toast('概览已导出');
+    toast(tl('概览已导出'));
   }
   function svgWrap(inner, w, h) {
     return '<svg viewBox="0 0 ' + w + ' ' + h + '" width="' + w + '" height="' + h + '" role="img" xmlns="http://www.w3.org/2000/svg">' + inner + '</svg>';
@@ -993,7 +1021,7 @@
     if (n.type === 'institution') {
       const it = INST_MAP.get(n.label) || {};
       head = '<div class="nd-name">' + esc(n.label) + '</div><div class="nd-sub">' + esc(it.type || '') + ' · ' + esc(it.region || '') + ' · 管理规模 ' + money(it.aum) + '</div>';
-      body = '<div class="detail-kpis"><div class="detail-kpi"><div class="k">图谱内参与金额</div><div class="v">' + money(n.value) + '</div></div><div class="detail-kpi"><div class="k">关联交易</div><div class="v">' + relEdges.length + ' <span class="u">条</span></div></div></div>';
+      body = '<div class="detail-kpis"><div class="detail-kpi"><div class="k">图谱内参与金额</div><div class="v">' + money(n.value) + '</div></div><div class="detail-kpi"><div class="k">关联交易</div><div class="v">' + relEdges.length + '</div></div></div>';
     } else if (n.type === 'company') {
       const co = COMP_MAP.get(n.label) || {};
       head = '<div class="nd-name">' + esc(n.label) + '</div><div class="nd-sub">' + esc(sectorName(co.sector)) + ' · ' + esc(co.region || '') + ' · 当前' + esc(co.stage || '') + '</div>';
@@ -1001,12 +1029,13 @@
     } else {
       head = '<div class="nd-name">' + esc(n.label) + '</div><div class="nd-sub">赛道枢纽</div>';
       const comps = model.nodes.filter(function (x) { return x.type === 'company' && COMP_MAP.get(x.label) && COMP_MAP.get(x.label).sector === D.sectors.find(function (s) { return s.name === n.label; }).id; });
-      body = '<div class="detail-kpis"><div class="detail-kpi"><div class="k">关联公司</div><div class="v">' + comps.length + ' <span class="u">家</span></div></div><div class="detail-kpi"><div class="k">图谱内金额</div><div class="v">' + money(n.value) + '</div></div></div>';
+      body = '<div class="detail-kpis"><div class="detail-kpi"><div class="k">关联公司</div><div class="v">' + comps.length + '</div></div><div class="detail-kpi"><div class="k">图谱内金额</div><div class="v">' + money(n.value) + '</div></div></div>';
     }
     const dealRows = relDeals.map(function (d) {
       return '<div class="flow-deal-row" data-deal-id="' + d.id + '"><div><div class="nm">' + esc(d.company) + ' · ' + esc(d.round) + '</div><div class="sub">' + fmtDate(d.date) + ' · 领投 ' + esc(d.lead) + '</div></div><div class="amt">' + money(d.amount) + '</div></div>';
     }).join('');
     el.innerHTML = '<div class="flow-node-detail">' + head + body + '<div style="margin-top:14px"><div class="sec-title">' + icon('banknote') + '关联交易</div>' + (dealRows || '<div style="color:#94a3b8;font-size:12px">暂无</div>') + '</div></div>';
+    localizeDom(el);
   }
 
   function renderFlow() {
@@ -1053,6 +1082,7 @@
       state.flowFilter = { sectors: new Set(), min: 3, cross: false, q: '' };
       afterFlow();
     });
+    localizeDom(document.body);
   }
   function filterDeals() {
     const f = state.dealFilter;
@@ -1123,11 +1153,12 @@
     $('pg-next').addEventListener('click', function () { state.page = Math.min(Math.ceil(filterDeals().length / 15), state.page + 1); render(); });
     $('deals-export').addEventListener('click', function () {
       const rows = filterDeals();
-      const csv = ['日期,公司,赛道,轮次,金额(亿元),领投方,跟投方,备注'].concat(rows.map(function (d) {
+      const cols = ['日期', '公司', '赛道', '轮次', '金额(亿元)', '领投方', '跟投方', '备注'].map(function (c) { return I18N.phrase(c, state.lang); });
+      const csv = [cols.join(',')].concat(rows.map(function (d) {
         return [d.date, d.company, d.sectorName, d.round, d.amount, d.lead, d.co.join(';'), d.note.replace(/,/g, '，')].map(function (v) { return '"' + String(v).replace(/"/g, '""') + '"'; }).join(',');
       })).join('\n');
       downloadText('capital-flow-deals.csv', '\ufeff' + csv);
-      toast('交易明细已导出');
+      toast(tl('交易明细已导出'));
     });
   }
 
@@ -1158,7 +1189,7 @@
     const cards = list.map(function (it) {
       const st = instStats(it.name);
       const focusTags = it.focus.slice(0, 3).map(function (s) { return '<span class="chip tag" style="color:' + esc(sectorColor(s)) + ';background:' + esc(sectorColor(s)) + '1a">' + esc(sectorName(s)) + '</span>'; }).join('');
-      return '<div class="card inst-card" data-inst-name="' + esc(it.name) + '"><div class="inst-top"><span class="inst-avatar" style="background:' + esc(colorHash(it.name)) + '">' + esc(initials(it.name)) + '</span><div><div class="inst-name">' + esc(it.name) + '</div><div class="inst-meta">' + esc(it.type) + ' · ' + esc(it.region) + ' · 成立' + esc(it.founded) + '年</div></div></div><div class="inst-aum"><span class="v">' + money(it.aum) + '</span><span class="u">管理规模</span></div><div class="chip-row">' + focusTags + '</div><div class="inst-foot"><span>参与交易 <span class="stat">' + st.total + '</span> 笔</span><span>近30天 <span class="stat">' + st.d30 + '</span> 笔</span><span>参与金额 <span class="stat">' + money(st.amt) + '</span></span></div></div>';
+      return '<div class="card inst-card" data-inst-name="' + esc(it.name) + '"><div class="inst-top"><span class="inst-avatar" style="background:' + esc(colorHash(it.name)) + '">' + esc(initials(it.name)) + '</span><div><div class="inst-name">' + esc(it.name) + '</div><div class="inst-meta">' + esc(it.type) + ' · ' + esc(it.region) + ' · 成立' + esc(it.founded) + '年</div></div></div><div class="inst-aum"><span class="v">' + money(it.aum) + '</span><span class="u">管理规模</span></div><div class="chip-row">' + focusTags + '</div><div class="inst-foot"><span>参与交易 <span class="stat">' + st.total + '</span></span><span>近30天 <span class="stat">' + st.d30 + '</span></span><span>参与金额 <span class="stat">' + money(st.amt) + '</span></span></div></div>';
     }).join('');
     const grid = '<div class="inst-grid">' + (cards || '<div class="empty-state" style="grid-column:1/-1">' + icon('search') + '<div>没有匹配的机构</div></div>') + '</div>';
     return head + toolbar + '<div style="height:14px"></div>' + grid;
@@ -1249,14 +1280,14 @@
     document.querySelectorAll('input[data-rule]').forEach(function (inp) {
       inp.addEventListener('change', function () {
         state.rules[inp.getAttribute('data-rule')] = inp.checked;
-        toast(inp.checked ? '规则已启用' : '规则已停用');
+        toast(inp.checked ? tl('规则已启用') : tl('规则已停用'));
       });
     });
     document.querySelectorAll('input[data-sig]').forEach(function (inp) {
       inp.addEventListener('change', function () {
         const id = inp.getAttribute('data-sig');
         state.rules[id] = inp.checked;
-        toast(inp.checked ? '信号已启用' : '信号已停用');
+        toast(inp.checked ? tl('信号已启用') : tl('信号已停用'));
       });
     });
     $('signal-scan').addEventListener('click', function () {
@@ -1265,7 +1296,7 @@
       setTimeout(function () {
         btn.disabled = false;
         render();
-        toast('扫描完成 · 检测到 ' + buildSignals().length + ' 条活跃信号');
+        toast(tl('扫描完成 · 检测到 ') + buildSignals().length + tl(' 条活跃信号'));
       }, 900);
     });
   }
@@ -1406,13 +1437,13 @@
     $('intel-gen').addEventListener('click', function () {
       const btn = this;
       btn.disabled = true;
-      btn.innerHTML = icon('refresh') + '生成中...';
+      btn.innerHTML = icon('refresh') + tl('生成中...');
       const done = function (msg) {
         btn.disabled = false;
-        btn.innerHTML = icon('zap') + '重新生成';
+        btn.innerHTML = icon('zap') + tl('重新生成');
         state.reportSeed++;
         render();
-        toast(msg || '研判报告已更新');
+        toast(msg || tl('研判报告已更新'));
       };
       setTimeout(function () {
         if (state.llmOn && state.llmKey) {
@@ -1434,9 +1465,9 @@
     if (state.llmReport) r.summary = state.llmReport;
       const text = '【资本流径 AI研判】' + r.summary;
       if (navigator.clipboard && navigator.clipboard.writeText) {
-        navigator.clipboard.writeText(text).then(function () { toast('摘要已复制'); }, function () { toast('复制失败', 'error'); });
+        navigator.clipboard.writeText(text).then(function () { toast(tl('摘要已复制')); }, function () { toast(tl('复制失败'), 'error'); });
       } else {
-        toast('复制失败', 'error');
+        toast(tl('复制失败'), 'error');
       }
     });
     $('intel-print').addEventListener('click', function () { window.print(); });
@@ -1452,7 +1483,7 @@
         } catch (e) { /* noop */ }
         closeModal();
         render();
-        toast(state.llmOn ? '已切换至 DeepSeek 引擎' : '已切换至本地引擎');
+        toast(state.llmOn ? tl('已切换至 DeepSeek 引擎') : tl('已切换至本地引擎'));
       });
       document.querySelectorAll('[data-close-modal]').forEach(function (b) { b.addEventListener('click', closeModal); });
     });
@@ -1512,7 +1543,7 @@
     const focus = it.focus.map(function (s) { return '<span class="chip tag" style="color:' + esc(sectorColor(s)) + ';background:' + esc(sectorColor(s)) + '1a">' + esc(sectorName(s)) + '</span>'; }).join('');
     openDrawer('<div class="drawer-head"><span class="cell-avatar" style="width:44px;height:44px;font-size:15px;border-radius:12px;background:' + esc(colorHash(name)) + '">' + esc(initials(name)) + '</span><div class="ht"><h3>' + esc(name) + '</h3><div class="sub">' + esc(it.type) + ' · ' + esc(it.region) + ' · 成立' + esc(it.founded) + '年</div></div><button class="icon-btn" data-close-drawer>' + icon('x') + '</button></div><div class="drawer-body">' +
       '<div class="drawer-section"><div class="desc-text">' + esc(it.desc) + '</div><div class="tags-row" style="margin-top:10px">' + focus + '</div></div>' +
-      '<div class="drawer-section"><div class="detail-kpis"><div class="detail-kpi"><div class="k">管理规模</div><div class="v">' + money(it.aum) + '</div></div><div class="detail-kpi"><div class="k">参与交易</div><div class="v">' + st.total + ' <span class="u">笔</span></div></div><div class="detail-kpi"><div class="k">参与金额</div><div class="v">' + money(st.amt) + '</div></div><div class="detail-kpi"><div class="k">近30天出手</div><div class="v">' + st.d30 + ' <span class="u">笔</span></div></div></div></div>' +
+      '<div class="drawer-section"><div class="detail-kpis"><div class="detail-kpi"><div class="k">管理规模</div><div class="v">' + money(it.aum) + '</div></div><div class="detail-kpi"><div class="k">参与交易</div><div class="v">' + st.total + '</div></div><div class="detail-kpi"><div class="k">参与金额</div><div class="v">' + money(st.amt) + '</div></div><div class="detail-kpi"><div class="k">近30天出手</div><div class="v">' + st.d30 + '</div></div></div></div>' +
       '<div class="drawer-section"><h4>' + icon('banknote') + '近期交易</h4>' + (dealRows || '<div style="color:#94a3b8">暂无记录</div>') + '</div>' +
       '</div>');
   }
@@ -1624,7 +1655,7 @@
     });
     $('refresh-btn').addEventListener('click', function () {
       render();
-      toast('数据已刷新 · ' + D.meta.asOf);
+      toast(tl('数据已刷新 · ') + D.meta.asOf);
     });
     $('alert-btn').addEventListener('click', function () {
       if ($('alert-pop').hidden) renderAlertPop(); else $('alert-pop').hidden = true;
@@ -1680,7 +1711,7 @@
       buildData();
       buildDerived();
       const upd = document.getElementById('side-update');
-      if (upd && data.meta && data.meta.asOf) upd.textContent = '数据截至 ' + data.meta.asOf;
+      if (upd && data.meta && data.meta.asOf) upd.textContent = tl('数据截至 ') + data.meta.asOf;
       return true;
     } catch (e) { return false; }
   }
@@ -1727,6 +1758,7 @@
     const scale = stage.__scale || 1;
     inner = '<g id="flow-content" transform="scale(' + scale + ')">' + inner + '</g>';
     stage.innerHTML = svgWrap(inner, W, H);
+    localizeDom(stage);
     const svg = stage.querySelector('svg');
     svg.style.width = '100%';
     svg.style.height = '100%';

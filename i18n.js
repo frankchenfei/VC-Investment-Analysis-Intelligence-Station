@@ -655,20 +655,122 @@ window.I18N = (function () {
     '演示数据 · 非实时行情': { en: 'Demo data · Not live', es: 'Datos demo · No en tiempo real', pt: 'Dados demo · Não em tempo real', fr: 'Données démo · Pas en temps réel' }
   };
 
+  var P13 = {
+    '笔': { en: ' deals', es: ' operaciones', pt: ' negócios', fr: ' opérations' },
+    ' 笔': { en: ' deals', es: ' operaciones', pt: ' negócios', fr: ' opérations' },
+    '家': { en: ' institutions', es: ' instituciones', pt: ' instituições', fr: ' institutions' },
+    ' 家': { en: ' institutions', es: ' instituciones', pt: ' instituições', fr: ' institutions' },
+    '条': { en: ' deals', es: ' operaciones', pt: ' negócios', fr: ' opérations' },
+    ' 条': { en: ' deals', es: ' operaciones', pt: ' negócios', fr: ' opérations' },
+    '起': { en: ' events', es: ' eventos', pt: ' eventos', fr: ' événements' },
+    ' 起': { en: ' events', es: ' eventos', pt: ' eventos', fr: ' événements' },
+    '人': { en: ' people', es: ' personas', pt: ' pessoas', fr: ' personnes' },
+    ' 人': { en: ' people', es: ' personas', pt: ' pessoas', fr: ' personnes' },
+    '项': { en: ' items', es: ' elementos', pt: ' itens', fr: ' éléments' },
+    ' 项': { en: ' items', es: ' elementos', pt: ' itens', fr: ' éléments' },
+    '年': { en: '', es: '', pt: '', fr: '' },
+    ' 年': { en: '', es: '', pt: '', fr: '' },
+    '笔交易': { en: ' deals', es: ' operaciones', pt: ' negócios', fr: ' opérations' },
+    ' 笔交易': { en: ' deals', es: ' operaciones', pt: ' negócios', fr: ' opérations' },
+    '条交易': { en: ' deals', es: ' operaciones', pt: ' negócios', fr: ' opérations' },
+    ' 条交易': { en: ' deals', es: ' operaciones', pt: ' negócios', fr: ' opérations' },
+    '家机构': { en: ' institutions', es: ' instituciones', pt: ' instituições', fr: ' institutions' },
+    ' 家机构': { en: ' institutions', es: ' instituciones', pt: ' instituições', fr: ' institutions' },
+    '家公司': { en: ' companies', es: ' empresas', pt: ' empresas', fr: ' entreprises' },
+    ' 家公司': { en: ' companies', es: ' empresas', pt: ' empresas', fr: ' entreprises' },
+    '头部VC': { en: 'Top VC', es: 'VC líder', pt: 'VC líder', fr: 'Top VC' },
+    '天使基金': { en: 'Angel fund', es: 'Fondo ángel', pt: 'Fundo anjo', fr: 'Fonds angel' },
+    '美元基金': { en: 'USD fund', es: 'Fondo USD', pt: 'Fundo USD', fr: 'Fonds USD' },
+    '产业资本': { en: 'Corporate capital', es: 'Capital corporativo', pt: 'Capital corporativo', fr: "Capital d'entreprise" },
+    'PE机构': { en: 'PE firm', es: 'Firma PE', pt: 'Firma PE', fr: 'Firme PE' },
+    '政府引导基金': { en: 'Government fund', es: 'Fondo gubernamental', pt: 'Fundo governamental', fr: 'Fonds public' },
+    '海外基金': { en: 'Overseas fund', es: 'Fondo extranjero', pt: 'Fundo estrangeiro', fr: 'Fonds étranger' },
+    'D+轮': { en: 'Series D+', es: 'Serie D+', pt: 'Série D+', fr: 'Série D+' },
+    'E轮': { en: 'Series E', es: 'Serie E', pt: 'Série E', fr: 'Série E' },
+    'F轮': { en: 'Series F', es: 'Serie F', pt: 'Série F', fr: 'Série F' },
+    '美国': { en: 'United States', es: 'Estados Unidos', pt: 'Estados Unidos', fr: 'États-Unis' },
+    '东南亚': { en: 'Southeast Asia', es: 'Sudeste Asiático', pt: 'Sudeste Asiático', fr: 'Asie du Sud-Est' },
+    '中东': { en: 'Middle East', es: 'Oriente Medio', pt: 'Oriente Médio', fr: 'Moyen-Orient' },
+    '欧洲': { en: 'Europe', es: 'Europa', pt: 'Europa', fr: 'Europe' },
+    '拉美': { en: 'Latin America', es: 'Latinoamérica', pt: 'América Latina', fr: 'Amérique latine' },
+    '机构 · 公司 · 赛道 之间的资金网络': { en: 'Capital network across institutions, companies and sectors', es: 'Red de capital entre instituciones, empresas y sectores', pt: 'Rede de capital entre instituições, empresas e setores', fr: 'Réseau de capitaux entre institutions, entreprises et secteurs' },
+    '机构': { en: 'Institution', es: 'Institución', pt: 'Instituição', fr: 'Institution' },
+    '管理': { en: 'AUM ', es: 'AUM ', pt: 'AUM ', fr: 'AUM ' },
+    '估值': { en: 'Valuation', es: 'Valoración', pt: 'Avaliação', fr: 'Valorisation' },
+    '节点': { en: 'Nodes', es: 'Nodos', pt: 'Nós', fr: 'Nœuds' },
+    '资金关系': { en: 'Capital relations', es: 'Relaciones de capital', pt: 'Relações de capital', fr: 'Relations de capitaux' },
+    '交易笔数': { en: 'Deal count', es: 'N.º de operaciones', pt: 'N.º de negócios', fr: "Nombre d'opérations" },
+    '近90天参与 ': { en: 'Participated in ', es: 'Participó en ', pt: 'Participou em ', fr: 'Participé à ' },
+    '单家平均 ': { en: 'Avg per investor ', es: 'Promedio por inversor ', pt: 'Média por investidor ', fr: 'Moyenne par investisseur ' },
+    '平均': { en: 'average', es: 'promedio', pt: 'média', fr: 'moyenne' },
+    '共 ': { en: 'Total ', es: 'Total ', pt: 'Total ', fr: 'Total ' },
+    '第 ': { en: 'Page ', es: 'Página ', pt: 'Página ', fr: 'Page ' },
+    ' 页 · 共 ': { en: ' · Total ', es: ' · Total ', pt: ' · Total ', fr: ' · Total ' },
+    '轮次': { en: 'Round', es: 'Ronda', pt: 'Rodada', fr: 'Tour' },
+    '公司 / 机构 / 备注': { en: 'Company / Institution / Note', es: 'Empresa / Institución / Nota', pt: 'Empresa / Instituição / Nota', fr: 'Entreprise / Institution / Note' },
+    '检测 · 最新扫描 ': { en: ' · Last scan ', es: ' · Último escaneo ', pt: ' · Última análise ', fr: ' · Dernière analyse ' },
+    '数据覆盖 ': { en: 'Data coverage ', es: 'Cobertura de datos ', pt: 'Cobertura de dados ', fr: 'Couverture des données ' },
+    '环比 ': { en: 'MoM ', es: 'MoM ', pt: 'MoM ', fr: 'MoM ' },
+    '增加': { en: 'up', es: 'alza', pt: 'alta', fr: 'hausse' },
+    '减少': { en: 'down', es: 'baja', pt: 'queda', fr: 'baisse' },
+    '增长': { en: 'growth', es: 'crecimiento', pt: 'crescimento', fr: 'croissance' },
+    '下降': { en: 'decline', es: 'caída', pt: 'queda', fr: 'baisse' },
+    '菜单': { en: 'Menu', es: 'Menú', pt: 'Menu', fr: 'Menu' },
+    '全局搜索': { en: 'Global search', es: 'Búsqueda global', pt: 'Busca global', fr: 'Recherche globale' },
+    '刷新': { en: 'Refresh', es: 'Actualizar', pt: 'Atualizar', fr: 'Actualiser' },
+    '通知': { en: 'Notifications', es: 'Notificaciones', pt: 'Notificações', fr: 'Notifications' },
+    '中文': { en: 'Chinese', es: 'Chino', pt: 'Chinês', fr: 'Chinois' },
+    '安': { en: 'A', es: 'A', pt: 'A', fr: 'A' },
+    '备注': { en: 'Note', es: 'Nota', pt: 'Nota', fr: 'Note' },
+    '金额(亿元)': { en: 'Amount (B)', es: 'Monto (M)', pt: 'Valor (M)', fr: 'Montant (M)' },
+    '亿元': { en: 'B', es: 'M', pt: 'M', fr: 'M' },
+    '暂无匹配信号': { en: 'No matching signals', es: 'No hay señales', pt: 'Nenhum sinal', fr: 'Aucun signal' },
+    'DeepSeek 引擎': { en: 'DeepSeek engine', es: 'Motor DeepSeek', pt: 'Mecanismo DeepSeek', fr: 'Moteur DeepSeek' },
+    '本地引擎': { en: 'Local engine', es: 'Motor local', pt: 'Mecanismo local', fr: 'Moteur local' },
+    '近365天': { en: 'Last 365 days', es: 'Últimos 365 días', pt: 'Últimos 365 dias', fr: '365 derniers jours' }
+  };
   function merge() {
     var out = {};
-    [P, P2, P3, P4, P5, P6, P7, P8, P9, P10, P11, P12].forEach(function (m) {
+    [P, P2, P3, P4, P5, P6, P7, P8, P9, P10, P11, P12, P13].forEach(function (m) {
       Object.keys(m).forEach(function (k) { out[k] = m[k]; });
     });
     return out;
   }
   var PHRASES = merge();
+  (function () {
+    var units = {
+      '笔': { en: ' deals', es: ' operaciones', pt: ' negócios', fr: ' opérations' },
+      ' 笔': { en: ' deals', es: ' operaciones', pt: ' negócios', fr: ' opérations' },
+      '家': { en: ' institutions', es: ' instituciones', pt: ' instituições', fr: ' institutions' },
+      ' 家': { en: ' institutions', es: ' instituciones', pt: ' instituições', fr: ' institutions' },
+      '条': { en: ' deals', es: ' operaciones', pt: ' negócios', fr: ' opérations' },
+      ' 条': { en: ' deals', es: ' operaciones', pt: ' negócios', fr: ' opérations' },
+      '起': { en: ' events', es: ' eventos', pt: ' eventos', fr: ' événements' },
+      ' 起': { en: ' events', es: ' eventos', pt: ' eventos', fr: ' événements' },
+      '项': { en: ' items', es: ' elementos', pt: ' itens', fr: ' éléments' },
+      ' 项': { en: ' items', es: ' elementos', pt: ' itens', fr: ' éléments' },
+      '年': { en: '', es: '', pt: '', fr: '' },
+      ' 年': { en: '', es: '', pt: '', fr: '' },
+      '人': { en: ' people', es: ' personas', pt: ' pessoas', fr: ' personnes' },
+      ' 人': { en: ' people', es: ' personas', pt: ' pessoas', fr: ' personnes' }
+    };
+    var n;
+    for (n = 0; n <= 99; n++) {
+      Object.keys(units).forEach(function (u) {
+        var e = units[u];
+        PHRASES[n + u] = { en: n + e.en, es: n + e.es, pt: n + e.pt, fr: n + e.fr };
+      });
+    }
+  })();
+
 
   function phrase(text, lang) {
     if (!text) return text;
     var entry = PHRASES[text];
     if (!entry) return text;
-    return entry[lang] || entry.en || text;
+    if (Object.prototype.hasOwnProperty.call(entry, lang)) return entry[lang];
+    if (Object.prototype.hasOwnProperty.call(entry, 'en')) return entry.en;
+    return text;
   }
 
   function dynamicSignal(lang, kind, a, b, c) {
@@ -679,10 +781,30 @@ window.I18N = (function () {
       if (kind === 'evidI') return '覆盖多个赛道，出手频率高于近12个月均值';
       return a;
     }
-    if (kind === 'inst') return a + ' closed ' + b + ' deals in 30 days';
-    if (kind === 'sector') return a + ' funding up ' + b + '% MoM';
-    if (kind === 'evidS') return a + ' vs ' + b + ' prior; capital concentrating in leaders';
-    if (kind === 'evidI') return 'Multiple sectors; frequency above 12-month average';
+    if (kind === 'inst') {
+      if (lang === 'es') return a + ' cerró ' + b + ' operaciones en 30 días';
+      if (lang === 'pt') return a + ' fechou ' + b + ' negócios em 30 dias';
+      if (lang === 'fr') return a + ' a conclu ' + b + ' opérations en 30 jours';
+      return a + ' closed ' + b + ' deals in 30 days';
+    }
+    if (kind === 'sector') {
+      if (lang === 'es') return a + ' financiación +' + b + '% intermensual';
+      if (lang === 'pt') return a + ' captação +' + b + '% mês a mês';
+      if (lang === 'fr') return a + ' financement +' + b + '% en mensuel';
+      return a + ' funding up ' + b + '% MoM';
+    }
+    if (kind === 'evidS') {
+      if (lang === 'es') return a + ' frente a ' + b + ' previo; el capital se concentra en líderes';
+      if (lang === 'pt') return a + ' vs ' + b + ' anterior; capital concentra-se em líderes';
+      if (lang === 'fr') return a + ' contre ' + b + ' précédent; capitaux concentrés sur les leaders';
+      return a + ' vs ' + b + ' prior; capital concentrating in leaders';
+    }
+    if (kind === 'evidI') {
+      if (lang === 'es') return 'Varios sectores; frecuencia superior al promedio de 12 meses';
+      if (lang === 'pt') return 'Vários setores; frequência acima da média de 12 meses';
+      if (lang === 'fr') return 'Plusieurs secteurs; fréquence au-dessus de la moyenne sur 12 mois';
+      return 'Multiple sectors; frequency above 12-month average';
+    }
     return a;
   }
 
