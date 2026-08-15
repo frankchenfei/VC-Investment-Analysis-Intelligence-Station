@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>资本流径 · VC资金流向情报平台</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="app-shell">
+  <aside class="sidebar" id="sidebar">
+    <div class="brand">
+      <div class="brand-mark">CF</div>
+      <div class="brand-text">
+        <div class="brand-name">资本流径</div>
+        <div class="brand-sub">CAPITAL FLOW INTELLIGENCE</div>
+      </div>
+    </div>
+    <nav class="nav" id="main-nav">
+      <button class="nav-item active" data-view="overview"><span class="nav-ic" data-icon="gauge"></span><span>市场总览</span></button>
+      <button class="nav-item" data-view="flow"><span class="nav-ic" data-icon="share2"></span><span>资金流向图谱</span></button>
+      <button class="nav-item" data-view="deals"><span class="nav-ic" data-icon="list"></span><span>融资动态</span></button>
+      <button class="nav-item" data-view="institutions"><span class="nav-ic" data-icon="landmark"></span><span>机构与公司</span></button>
+      <button class="nav-item" data-view="signals"><span class="nav-ic" data-icon="radar"></span><span>信号监控</span><span class="nav-badge" id="signal-badge">0</span></button>
+      <button class="nav-item" data-view="ecosystem"><span class="nav-ic" data-icon="layers"></span><span>生态全景</span></button>
+      <button class="nav-item" data-view="intel"><span class="nav-ic" data-icon="sparkles"></span><span>AI研判</span></button>
+    </nav>
+    <div class="sidebar-foot">
+      <div class="data-note"><span class="dot"></span>演示数据 · 非实时</div>
+      <div class="side-update" id="side-update">数据截至 2026-08-15 08:40</div>
+    </div>
+  </aside>
+
+  <div class="app-main">
+    <header class="topbar">
+      <button class="icon-btn menu-btn" id="menu-btn" data-icon="menu" aria-label="菜单"></button>
+      <div class="search-wrap">
+        <span class="search-ic" data-icon="search"></span>
+        <input id="global-search" class="search-input" placeholder="搜索公司、机构、交易..." autocomplete="off" aria-label="全局搜索">
+      </div>
+      <div class="top-actions">
+        <div class="range-control">
+          <span class="range-label">时间范围</span>
+          <select id="range-select" class="select" aria-label="时间范围">
+            <option value="30">近30天</option>
+            <option value="90">近90天</option>
+            <option value="180">近6个月</option>
+            <option value="365" selected>近12个月</option>
+          </select>
+        </div>
+        <button class="icon-btn" id="refresh-btn" data-icon="refresh" aria-label="刷新"></button>
+        <button class="icon-btn has-dot" id="alert-btn" data-icon="bell" aria-label="通知"></button>
+        <select id="lang-select" class="select lang-select" aria-label="Language">
+          <option value="zh">中文</option>
+          <option value="en">English</option>
+          <option value="es">Español</option>
+          <option value="pt">Português</option>
+          <option value="fr">Français</option>
+        </select>
+        <div class="avatar">安</div>
+      </div>
+    </header>
+    <main class="view-root" id="view-root"></main>
+  </div>
+</div>
+
+<div class="drawer-backdrop" id="drawer-backdrop"></div>
+<aside class="drawer" id="drawer" aria-hidden="true"></aside>
+<div class="search-pop" id="search-pop" hidden></div>
+<div class="pop-card" id="alert-pop" hidden></div>
+<div class="toast-root" id="toast-root"></div>
+<div class="modal-backdrop" id="modal-backdrop" hidden></div>
+<div class="modal" id="modal" role="dialog" hidden></div>
+<div class="tooltip" id="tooltip" hidden></div>
+
+<script src="data.js"></script>
+<script src="i18n.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
