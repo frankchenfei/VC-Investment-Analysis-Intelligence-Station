@@ -1239,7 +1239,7 @@
       "sector": "saas",
       "region": "上海",
       "founded": 2022,
-      "stage": "A轮",
+      "stage": "A+轮",
       "estValuation": 25,
       "employees": 150,
       "tags": [
@@ -3235,6 +3235,216 @@
       "note": "茶饮门店网络扩张",
       "cross": true,
       "usd": true
+    },
+    {
+      "id": 921,
+      "company": "co-zhipu",
+      "companyName": "智谱AI",
+      "sector": "ai",
+      "region": "北京",
+      "date": "2026-08-17",
+      "round": "B+轮",
+      "amount": 30,
+      "lead": "高瓴创投",
+      "co": [
+        "红杉中国",
+        "中金资本"
+      ],
+      "note": "大模型政务与金融场景新增多个标杆订单，推理成本进一步下降",
+      "cross": false,
+      "usd": false
+    },
+    {
+      "id": 922,
+      "company": "co-agibot",
+      "companyName": "智元机器人",
+      "sector": "robot",
+      "region": "上海",
+      "date": "2026-08-17",
+      "round": "C轮",
+      "amount": 24,
+      "lead": "比亚迪投资",
+      "co": [
+        "高瓴创投",
+        "小米战投"
+      ],
+      "note": "人形机器人工厂产线批量交付，车企场景落地",
+      "cross": false,
+      "usd": false
+    },
+    {
+      "id": 923,
+      "company": "co-muxi",
+      "companyName": "沐曦集成电路",
+      "sector": "chip",
+      "region": "上海",
+      "date": "2026-08-16",
+      "round": "D轮",
+      "amount": 36,
+      "lead": "国投创合",
+      "co": [
+        "中金资本",
+        "上海科创基金"
+      ],
+      "note": "全栈GPU进入多家智算中心，生态适配加速",
+      "cross": false,
+      "usd": false
+    },
+    {
+      "id": 924,
+      "company": "co-tailan",
+      "companyName": "太蓝新能源",
+      "sector": "energy",
+      "region": "重庆",
+      "date": "2026-08-16",
+      "round": "C轮",
+      "amount": 28,
+      "lead": "中金资本",
+      "co": [
+        "淡马锡",
+        "比亚迪投资"
+      ],
+      "note": "全固态电池中试线投产，装车验证推进",
+      "cross": true,
+      "usd": false
+    },
+    {
+      "id": 925,
+      "company": "co-yingeng",
+      "companyName": "映恩生物",
+      "sector": "bio",
+      "region": "上海",
+      "date": "2026-08-16",
+      "round": "D轮",
+      "amount": 18,
+      "lead": "启明创投",
+      "co": [
+        "高瓴创投"
+      ],
+      "note": "ADC管线海外授权交易落地，临床III期推进",
+      "cross": true,
+      "usd": false
+    },
+    {
+      "id": 926,
+      "company": "co-sensors",
+      "companyName": "神策数据",
+      "sector": "saas",
+      "region": "北京",
+      "date": "2026-08-17",
+      "round": "D+轮",
+      "amount": 6,
+      "lead": "高成资本",
+      "co": [
+        "红杉中国"
+      ],
+      "note": "数据底座与AI分析产品进入大型企业采购",
+      "cross": false,
+      "usd": false
+    },
+    {
+      "id": 927,
+      "company": "co-bawang",
+      "companyName": "霸王茶姬",
+      "sector": "consumer",
+      "region": "成都",
+      "date": "2026-08-15",
+      "round": "Pre-IPO",
+      "amount": 55,
+      "lead": "中金资本",
+      "co": [
+        "高瓴创投",
+        "老虎环球"
+      ],
+      "note": "港股上市辅导推进，海外门店突破千家",
+      "cross": false,
+      "usd": false
+    },
+    {
+      "id": 928,
+      "company": "co-dobot",
+      "companyName": "越疆科技",
+      "sector": "mf",
+      "region": "深圳",
+      "date": "2026-08-17",
+      "round": "C轮",
+      "amount": 10,
+      "lead": "达晨财智",
+      "co": [
+        "中科创星"
+      ],
+      "note": "协作机器人海外订单放量",
+      "cross": true,
+      "usd": false
+    },
+    {
+      "id": 929,
+      "company": "co-galaxy",
+      "companyName": "银河通用",
+      "sector": "robot",
+      "region": "北京",
+      "date": "2026-08-15",
+      "round": "B+轮",
+      "amount": 20,
+      "lead": "深创投",
+      "co": [
+        "源码资本",
+        "蓝驰创投"
+      ],
+      "note": "具身智能机器人大模型进入仓储物流场景",
+      "cross": false,
+      "usd": false
+    },
+    {
+      "id": 930,
+      "company": "co-lanma",
+      "companyName": "澜码科技",
+      "sector": "saas",
+      "region": "上海",
+      "date": "2026-08-16",
+      "round": "A+轮",
+      "amount": 4,
+      "lead": "线性资本",
+      "co": [
+        "真格基金"
+      ],
+      "note": "Agent自动化平台进入金融行业标杆客户",
+      "cross": false,
+      "usd": false
+    },
+    {
+      "id": 931,
+      "company": "co-mixue",
+      "companyName": "蜜雪冰城",
+      "sector": "consumer",
+      "region": "郑州",
+      "date": "2026-08-17",
+      "round": "战略轮",
+      "amount": 30,
+      "lead": "高瓴创投",
+      "co": [
+        "中金资本"
+      ],
+      "note": "海外供应链基地建设，全球门店扩张",
+      "cross": false,
+      "usd": false
+    },
+    {
+      "id": 932,
+      "company": "co-neocrm",
+      "companyName": "销售易",
+      "sector": "saas",
+      "region": "北京",
+      "date": "2026-08-15",
+      "round": "D轮",
+      "amount": 6,
+      "lead": "高成资本",
+      "co": [
+        "红杉中国"
+      ],
+      "note": "AI CRM产品商业化加速",
+      "cross": false,
+      "usd": false
     }
   ],
   "flows": {
@@ -3285,7 +3495,7 @@
       ],
       [
         "2026-08",
-        830
+        920
       ]
     ],
     "quarterly": {
@@ -3301,14 +3511,14 @@
         560,
         720,
         650,
-        390
+        460
       ],
       "outbound": [
         310,
         380,
         460,
         520,
-        260
+        300
       ]
     },
     "outboundRegions": [
@@ -3351,7 +3561,7 @@
         420,
         560,
         610,
-        320
+        380
       ]
     },
     "exits": {
@@ -3367,14 +3577,14 @@
         31,
         38,
         35,
-        16
+        20
       ],
       "ma": [
         9,
         12,
         15,
         13,
-        7
+        9
       ]
     },
     "valuationTrend": [
@@ -3586,6 +3796,54 @@
         "映恩生物"
       ],
       "ts": "2026-08-14 19:50"
+    },
+    {
+      "id": "sig-11",
+      "level": "high",
+      "cat": "赛道动量",
+      "title": "AI大模型融资热度延续，近30天头部项目吸金超180亿元",
+      "evidence": "智谱AI、澜码科技等先后交割，单笔最高35亿元",
+      "refs": [
+        "智谱AI",
+        "澜码科技"
+      ],
+      "ts": "2026-08-17 09:20"
+    },
+    {
+      "id": "sig-12",
+      "level": "high",
+      "cat": "机构动态",
+      "title": "高瓴创投近48小时连投智谱AI与蜜雪冰城",
+      "evidence": "智谱AI B+轮与蜜雪冰城战略轮先后完成",
+      "refs": [
+        "高瓴创投",
+        "智谱AI",
+        "蜜雪冰城"
+      ],
+      "ts": "2026-08-17 09:05"
+    },
+    {
+      "id": "sig-13",
+      "level": "medium",
+      "cat": "资金流向",
+      "title": "外资参与硬科技大额交易占比回升",
+      "evidence": "淡马锡、软银愿景参与固态电池与AI芯片项目",
+      "refs": [
+        "淡马锡",
+        "软银愿景"
+      ],
+      "ts": "2026-08-16 22:40"
+    },
+    {
+      "id": "sig-14",
+      "level": "medium",
+      "cat": "赛道动量",
+      "title": "固态电池融资升温，太蓝新能源完成新一轮",
+      "evidence": "太蓝新能源全固态中试线投产，装车验证推进",
+      "refs": [
+        "太蓝新能源"
+      ],
+      "ts": "2026-08-16 22:10"
     }
   ],
   "rules": [
@@ -3648,7 +3906,7 @@
   ],
   "meta": {
     "name": "资本流径",
-    "asOf": "2026-08-15 16:15",
+    "asOf": "2026-08-17 09:30",
     "disclaimer": "演示数据 · 非实时行情",
     "rangeOptions": [
       {
@@ -3667,7 +3925,6 @@
         "v": 365,
         "label": "近12个月"
       }
-    ],
-    "updatedAt": "2026-08-15T16:15:21.463879+08:00"
+    ]
   }
 }
