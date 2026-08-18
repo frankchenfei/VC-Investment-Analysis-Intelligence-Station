@@ -3445,6 +3445,177 @@
       "note": "AI CRM产品商业化加速",
       "cross": false,
       "usd": false
+    },
+    {
+      "id": 933,
+      "company": "co-moonshot",
+      "companyName": "月之暗面",
+      "sector": "ai",
+      "region": "北京",
+      "date": "2026-08-18",
+      "round": "B轮",
+      "amount": 20,
+      "lead": "腾讯投资",
+      "co": [
+        "高瓴创投",
+        "红杉中国"
+      ],
+      "note": "Kimi多模态与推理成本优化，C端订阅增长",
+      "cross": false,
+      "usd": false
+    },
+    {
+      "id": 934,
+      "company": "co-unitree",
+      "companyName": "宇树科技",
+      "sector": "robot",
+      "region": "杭州",
+      "date": "2026-08-18",
+      "round": "C轮",
+      "amount": 30,
+      "lead": "源码资本",
+      "co": [
+        "红杉中国"
+      ],
+      "note": "人形机器人海外订单放量，量产交付提速",
+      "cross": true,
+      "usd": false
+    },
+    {
+      "id": 935,
+      "company": "co-biren",
+      "companyName": "壁仞科技",
+      "sector": "chip",
+      "region": "上海",
+      "date": "2026-08-18",
+      "round": "D轮",
+      "amount": 45,
+      "lead": "上海科创基金",
+      "co": [
+        "国投创合"
+      ],
+      "note": "国产GPU新一代产品发布，生态适配加速",
+      "cross": false,
+      "usd": false
+    },
+    {
+      "id": 936,
+      "company": "co-weilan",
+      "companyName": "卫蓝新能源",
+      "sector": "energy",
+      "region": "北京",
+      "date": "2026-08-18",
+      "round": "C+轮",
+      "amount": 20,
+      "lead": "合肥产投",
+      "co": [
+        "中金资本"
+      ],
+      "note": "半固态电池出货量提升，储能订单增长",
+      "cross": false,
+      "usd": false
+    },
+    {
+      "id": 937,
+      "company": "co-yimeng",
+      "companyName": "宜明昂科",
+      "sector": "bio",
+      "region": "上海",
+      "date": "2026-08-18",
+      "round": "Pre-IPO",
+      "amount": 16,
+      "lead": "中金资本",
+      "co": [
+        "国投创合"
+      ],
+      "note": "双抗管线临床数据读出，IPO进程推进",
+      "cross": false,
+      "usd": false
+    },
+    {
+      "id": 938,
+      "company": "co-fxiaoke",
+      "companyName": "纷享销客",
+      "sector": "saas",
+      "region": "北京",
+      "date": "2026-08-18",
+      "round": "F轮",
+      "amount": 7,
+      "lead": "五源资本",
+      "co": [
+        "高瓴创投"
+      ],
+      "note": "AI CRM企业客户规模化扩展",
+      "cross": false,
+      "usd": false
+    },
+    {
+      "id": 939,
+      "company": "co-sitan",
+      "companyName": "思坦科技",
+      "sector": "mf",
+      "region": "深圳",
+      "date": "2026-08-17",
+      "round": "C轮",
+      "amount": 12,
+      "lead": "深创投",
+      "co": [
+        "中科创星"
+      ],
+      "note": "Micro-LED微显示产线扩产",
+      "cross": false,
+      "usd": false
+    },
+    {
+      "id": 940,
+      "company": "co-chapanda",
+      "companyName": "茶百道",
+      "sector": "consumer",
+      "region": "成都",
+      "date": "2026-08-17",
+      "round": "战略轮",
+      "amount": 20,
+      "lead": "挑战者创投",
+      "co": [
+        "愉悦资本"
+      ],
+      "note": "海外门店扩张，供应链数字化升级",
+      "cross": false,
+      "usd": false
+    },
+    {
+      "id": 941,
+      "company": "co-lingshi",
+      "companyName": "零食很忙",
+      "sector": "consumer",
+      "region": "长沙",
+      "date": "2026-08-17",
+      "round": "C轮",
+      "amount": 18,
+      "lead": "红杉中国",
+      "co": [
+        "高瓴创投"
+      ],
+      "note": "量贩零食门店突破万店",
+      "cross": false,
+      "usd": false
+    },
+    {
+      "id": 942,
+      "company": "co-sic",
+      "companyName": "芯驰科技",
+      "sector": "chip",
+      "region": "南京",
+      "date": "2026-08-17",
+      "round": "C轮",
+      "amount": 14,
+      "lead": "元禾原点",
+      "co": [
+        "中金资本"
+      ],
+      "note": "车规芯片新平台量产装车",
+      "cross": false,
+      "usd": false
     }
   ],
   "flows": {
@@ -3495,7 +3666,7 @@
       ],
       [
         "2026-08",
-        920
+        980
       ]
     ],
     "quarterly": {
@@ -3511,14 +3682,14 @@
         560,
         720,
         650,
-        460
+        500
       ],
       "outbound": [
         310,
         380,
         460,
         520,
-        300
+        330
       ]
     },
     "outboundRegions": [
@@ -3561,7 +3732,7 @@
         420,
         560,
         610,
-        380
+        420
       ]
     },
     "exits": {
@@ -3577,14 +3748,14 @@
         31,
         38,
         35,
-        20
+        24
       ],
       "ma": [
         9,
         12,
         15,
         13,
-        9
+        11
       ]
     },
     "valuationTrend": [
@@ -3844,6 +4015,53 @@
         "太蓝新能源"
       ],
       "ts": "2026-08-16 22:10"
+    },
+    {
+      "id": "sig-15",
+      "level": "high",
+      "cat": "赛道动量",
+      "title": "AI大模型与应用层融资热度延续，头部项目近30天吸金超200亿元",
+      "evidence": "智谱AI、月之暗面、澜码科技等先后交割，单笔最高35亿元",
+      "refs": [
+        "智谱AI",
+        "月之暗面"
+      ],
+      "ts": "2026-08-18 09:20"
+    },
+    {
+      "id": "sig-16",
+      "level": "high",
+      "cat": "机构动态",
+      "title": "腾讯投资近30天加码AI大模型与消费科技",
+      "evidence": "月之暗面、蜜雪冰城等交易完成",
+      "refs": [
+        "腾讯投资",
+        "月之暗面"
+      ],
+      "ts": "2026-08-18 09:05"
+    },
+    {
+      "id": "sig-17",
+      "level": "medium",
+      "cat": "赛道动量",
+      "title": "固态电池与储能融资升温",
+      "evidence": "卫蓝新能源新一轮交割，装车与储能订单增长",
+      "refs": [
+        "卫蓝新能源"
+      ],
+      "ts": "2026-08-18 08:50"
+    },
+    {
+      "id": "sig-18",
+      "level": "medium",
+      "cat": "资金流向",
+      "title": "外资与产业资本共同参与硬科技大额轮次",
+      "evidence": "淡马锡、比亚迪投资参与固态电池与人形机器人项目",
+      "refs": [
+        "淡马锡",
+        "比亚迪投资"
+      ],
+      "ts": "2026-08-18 08:30"
     }
   ],
   "rules": [
@@ -3906,8 +4124,7 @@
   ],
   "meta": {
     "name": "资本流径",
-    "asOf": "2026-08-17 09:30",
-    "disclaimer": "演示数据 · 非实时行情",
+    "asOf": "2026-08-18 09:30",
     "rangeOptions": [
       {
         "v": 30,

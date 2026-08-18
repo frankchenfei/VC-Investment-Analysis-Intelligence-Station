@@ -451,7 +451,7 @@
     const nb = D.flows.monthly.map(function (r) { return r[1]; });
     const nbChange = pctChange(sum(nb.slice(-3)), sum(nb.slice(-6, -3)));
 
-    const head = '<section class="page-head"><div><h1>市场总览</h1><p class="page-sub">' + esc(D.meta.asOf) + ' · ' + esc(D.meta.disclaimer) + '</p></div><div class="head-actions"><button class="btn ghost" id="overview-export">' + icon('download') + '导出概览</button></div></section>';
+    const head = '<section class="page-head"><div><h1>市场总览</h1><p class="page-sub">' + esc(D.meta.asOf) + '</p></div><div class="head-actions"><button class="btn ghost" id="overview-export">' + icon('download') + '导出概览</button></div></section>';
 
     const kpis = '<div class="kpi-grid">' +
       kpiCard('wallet', 'green', '近30天融资总额', money(total30), '', deltaHtml(pctChange(total30, prevTotal30), true)) +
@@ -511,7 +511,7 @@
   function exportOverview() {
     const lines = [];
     lines.push('资本流径 · 市场总览');
-    lines.push('数据截至 ' + D.meta.asOf + ' · ' + D.meta.disclaimer);
+    lines.push('数据截至 ' + D.meta.asOf);
     lines.push('');
     lines.push('近30天融资总额: ' + money(sum(deals.filter(function (d) { return inRange(d.date, 30); }), function (d) { return d.amount; })));
     lines.push('近30天交易事件: ' + deals.filter(function (d) { return inRange(d.date, 30); }).length + ' 笔');
@@ -1366,7 +1366,7 @@
     const insts = r.insts.map(function (i) { return '<div class="report-item"><div class="k">' + esc(i.name) + ' · ' + esc(i.type) + '</div><div class="v">' + esc(i.amt) + ' <span class="d">' + i.count + ' 笔</span></div><div class="x">' + esc(i.note) + '</div></div>'; }).join('');
     const flows = r.flows.map(function (fl) { return '<div class="report-item"><div class="k">' + esc(fl.k) + '</div><div class="v">' + esc(fl.v) + ' <span class="' + (fl.g >= 0 ? 'g' : 'd') + '">' + (fl.g >= 0 ? '+' : '') + fl.g.toFixed(1) + '%</span></div><div class="x">' + esc(fl.x) + '</div></div>'; }).join('');
     const risks = r.risks.map(function (s) { return '<div class="report-item"><div class="k">风险信号</div><div class="v">' + esc(s.title) + '</div><div class="x">' + esc(s.evidence) + '</div></div>'; }).join('');
-    return '<div class="card report-card"><div class="report-hero"><div><h2>一级市场投资研判 · 近30天</h2><div class="sub">' + esc(D.meta.asOf) + ' · ' + esc(mode) + ' · 数据覆盖 ' + esc(D.meta.disclaimer) + '</div></div><div class="score"><div class="num">' + r.score + '</div><div class="lbl">市场温度 / 偏热</div></div></div><div class="report-body">' +
+    return '<div class="card report-card"><div class="report-hero"><div><h2>一级市场投资研判 · 近30天</h2><div class="sub">' + esc(D.meta.asOf) + ' · ' + esc(mode) + '' + '</div></div><div class="score"><div class="num">' + r.score + '</div><div class="lbl">市场温度 / 偏热</div></div></div><div class="report-body">' +
       '<div class="report-summary"><div class="mark"></div><p>' + esc(r.summary) + '</p></div>' +
       '<div class="report-section"><h3>' + icon('activity') + '市场温度</h3><div class="report-cols">' + market + '</div></div>' +
       '<div class="report-section"><h3>' + icon('flame') + '赛道热度</h3><div class="report-cols">' + secs + '</div></div>' +
