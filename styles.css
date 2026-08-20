@@ -696,3 +696,24 @@ table.tbl { width: 100%; border-collapse: collapse; font-size: 13px; }
   .report-card { border: 0; }
   .report-hero { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
 }
+
+.company-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 14px; margin-top: 14px; }
+.company-card { padding: 16px; }
+.company-card .inst-top { margin-bottom: 10px; }
+.site-link { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 600; color: var(--accent); text-decoration: none; margin-top: 4px; }
+.site-link:hover { color: var(--blue); }
+.site-link svg { width: 14px; height: 14px; }
+.market-quotes { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; margin-bottom: 16px; }
+.market-quote { padding: 14px 16px; }
+.mq-name { font-size: 12px; color: var(--muted); }
+.mq-value { font-size: 20px; font-weight: 800; margin-top: 4px; }
+.chart-lg { min-height: 240px; }
+
+.sentiment-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 12px; margin-bottom: 16px; }
+.sentiment-card { padding: 14px 16px; }
+.mq-note { font-size: 11px; color: var(--faint); margin-left: 6px; }
+.market-table-wrap { margin-top: 14px; overflow-x: auto; }
+.market-table { min-width: 720px; font-size: 12px; }
+.market-table th, .market-table td { padding: 7px 10px; white-space: nowrap; }
+.market-table th { background: var(--line-2); }
+

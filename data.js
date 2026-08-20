@@ -10,6 +10,96 @@
     { id: 'consumer', name: '消费零售', color: '#ef4444' }
   ];
 
+  const OFFICIAL_SITES = {
+    'inst-hl': 'https://www.hillhousecap.com',
+    'inst-hs': 'https://www.hongshan.com.cn',
+    'inst-idg': 'https://www.idgcapital.com',
+    'inst-yc': 'https://www.sourcecodecap.com',
+    'inst-qm': 'https://www.qimingvc.com',
+    'inst-zg': 'https://www.zhenfund.com',
+    'inst-qj': 'https://www.miracleplus.com',
+    'inst-xx': 'https://www.linear.vc',
+    'inst-yq': 'https://www.yunqipartners.com',
+    'inst-lx': 'https://www.lenovocapital.com',
+    'inst-tencent': 'https://www.tencent.com',
+    'inst-ali': 'https://www.alibabagroup.com',
+    'inst-mi': 'https://www.mi.com',
+    'inst-byd': 'https://www.byd.com',
+    'inst-cicc': 'https://www.cicc.com',
+    'inst-szc': 'https://www.szvc.com.cn',
+    'inst-tongc': 'https://www.cowinvc.com',
+    'inst-gaorong': 'https://www.gaorong.vc',
+    'inst-sbvv': 'https://www.visionfund.com',
+    'inst-temasek': 'https://www.temasek.com.sg',
+    'inst-tiger': 'https://www.tigerglobal.com',
+    'inst-plum': 'https://www.plumventures.cn',
+    'inst-legend': 'https://www.legendcapital.com.cn',
+    'inst-k2': 'https://www.k2vc.com',
+    'inst-gsr': 'https://www.gsrventures.com',
+    'inst-nl': 'https://www.nlightvc.com',
+    'inst-sinovation': 'https://www.sinovationventures.com',
+    'inst-gaocheng': 'https://www.gaochengcap.com',
+    'inst-lightspeed': 'https://www.lightspeedchina.com',
+    'inst-shunwei': 'https://www.shunwei.com',
+    'inst-5y': 'https://www.5ycap.com',
+    'inst-ggv': 'https://www.ggvcap.com',
+    'inst-joy': 'https://www.joycapital.com',
+    'inst-casstar': 'https://www.casstar.com.cn',
+    'inst-inno': 'https://www.innoangel.com.cn',
+    'inst-frees': 'https://www.freesvc.com',
+    'co-zhipu': 'https://www.zhipuai.cn',
+    'co-moonshot': 'https://www.moonshot.cn',
+    'co-minimax': 'https://www.minimax.io',
+    'co-baichuan': 'https://www.baichuan-ai.com',
+    'co-01ai': 'https://www.01.ai',
+    'co-stepfun': 'https://www.stepfun.com',
+    'co-infinigence': 'https://www.infinigence.ai',
+    'co-unitree': 'https://www.unitree.com',
+    'co-agibot': 'https://www.zhiyuan-robot.com',
+    'co-galaxy': 'https://www.galbot.com',
+    'co-limxd': 'https://www.limxdynamics.com',
+    'co-cloudwood': 'https://www.deeprobotics.cn',
+    'co-biren': 'https://www.birentech.com',
+    'co-muxi': 'https://www.metax-tech.com',
+    'co-moore': 'https://www.moorethreads.cn',
+    'co-suan': 'https://www.enflame-tech.com',
+    'co-tianshu': 'https://www.iluvatar.com',
+    'co-hanbo': 'https://www.vastaitech.com',
+    'co-weilan': 'https://www.welion.com.cn',
+    'co-yidao': 'https://www.yidaosolar.com',
+    'co-yingeng': 'https://www.dualitybiologics.com',
+    'co-xiansheng': 'https://www.simcere.com',
+    'co-pufang': 'https://www.profoundbio.com',
+    'co-sensors': 'https://www.sensorsdata.cn',
+    'co-minglue': 'https://www.mininglamp.com',
+    'co-fenbeitong': 'https://www.fenbeitong.com',
+    'co-bawang': 'https://www.bawangchaji.com',
+    'co-cotti': 'https://www.cotti.com',
+    'co-mixue': 'https://www.mixue.com',
+    'co-shengshu': 'https://www.shengshu-ai.com',
+    'co-modelbest': 'https://www.modelbest.cn',
+    'co-deeplang': 'https://www.deeplang.ai',
+    'co-silicon': 'https://www.siliconflow.cn',
+    'co-fourier': 'https://www.fftai.com',
+    'co-dreame': 'https://www.dreame.tech',
+    'co-leju': 'https://www.lejurobot.com',
+    'co-ubtech': 'https://www.ubtrobot.com',
+    'co-bst': 'https://www.blacksesame.com.cn',
+    'co-xepic': 'https://www.xepic.com',
+    'co-svolt': 'https://www.svolt.cn',
+    'co-aesc': 'https://www.aesc-group.com',
+    'co-keymed': 'https://www.keymedbio.com',
+    'co-jacobio': 'https://www.jacobio.com',
+    'co-neocrm': 'https://www.xiaoshouyi.com',
+    'co-fxiaoke': 'https://www.fxiaoke.com',
+    'co-dobot': 'https://www.dobot.cc',
+    'co-chapanda': 'https://www.chabaidao.com',
+    'co-heytea': 'https://www.heytea.com'
+  };
+  function siteFor(id, name) {
+    return OFFICIAL_SITES[id] || 'https://www.bing.com/search?q=' + encodeURIComponent(name + ' 官网');
+  }
+
   const institutions = [
     ['inst-hl', '高瓴创投', '头部VC', '北京', 2000, ['ai', 'robot', 'energy', 'bio', 'consumer'], 9, '聚焦科技、医疗与消费的长期成长投资'],
     ['inst-hs', '红杉中国', '头部VC', '北京', 3000, ['ai', 'robot', 'chip', 'energy', 'saas', 'consumer'], 10, '全周期投资，覆盖种子到成长期'],
@@ -60,7 +150,7 @@
     ['inst-off', '东方富海', 'PE机构', '深圳', 300, ['mf', 'energy', 'bio'], 6, '先进制造与新能源投资'],
     ['inst-fortune', '达晨财智', 'PE机构', '深圳', 350, ['mf', 'chip', 'ai'], 7, '智能制造与科技投资']
   ].map(function (r) {
-    return { id: r[0], name: r[1], type: r[2], region: r[3], aum: r[4], focus: r[5], scale: r[6], desc: r[7] };
+    return { id: r[0], name: r[1], type: r[2], region: r[3], aum: r[4], focus: r[5], scale: r[6], desc: r[7], website: siteFor(r[0], r[1]) };
   });
 
   const companies = [
@@ -131,7 +221,7 @@
     ['co-chapanda', '茶百道', 'consumer', '成都', 2008, '战略轮', 120, 7000, ['新茶饮'], '新茶饮连锁品牌'],
     ['co-heytea', '喜茶', 'consumer', '深圳', 2012, '战略轮', 200, 5000, ['新茶饮'], '现制茶饮连锁品牌']
   ].map(function (r) {
-    return { id: r[0], name: r[1], sector: r[2], region: r[3], founded: r[4], stage: r[5], estValuation: r[6], employees: r[7], tags: r[8], desc: r[9] };
+    return { id: r[0], name: r[1], sector: r[2], region: r[3], founded: r[4], stage: r[5], estValuation: r[6], employees: r[7], tags: r[8], desc: r[9], website: siteFor(r[0], r[1]) };
   });
 
   const dealRows = [
@@ -378,7 +468,144 @@
     ]
   };
 
+  const markets = {
+    labels: ['08/07', '08/10', '08/11', '08/12', '08/13', '08/14', '08/17', '08/18', '08/19', '08/20'],
+    quotes: [
+      { name: '美元指数', value: '104.2', chg: 0.3, up: true },
+      { name: '现货黄金', value: '2472', chg: 1.2, up: true },
+      { name: '白银', value: '29.8', chg: 1.5, up: true },
+      { name: 'WTI原油', value: '83.0', chg: 1.5, up: true },
+      { name: '布伦特原油', value: '86.2', chg: 1.4, up: true },
+      { name: '天然气', value: '2.72', chg: 2.3, up: true },
+      { name: '沪铜', value: '76800', chg: 1.1, up: true },
+      { name: '铁矿石', value: '826', chg: 1.2, up: true },
+      { name: '沪深300', value: '3700', chg: 1.4, up: true },
+      { name: '标普500', value: '5720', chg: 0.5, up: true },
+      { name: '恒生指数', value: '18180', chg: 1.3, up: true },
+      { name: '纳斯达克100', value: '20800', chg: 0.8, up: true },
+      { name: '美元兑人民币', value: '7.10', chg: -0.2, up: false },
+      { name: '欧元美元', value: '1.102', chg: 0.4, up: true },
+      { name: '美元日元', value: '144.8', chg: -0.5, up: false },
+      { name: 'VIX恐慌指数', value: '14.8', chg: -2.1, up: false }
+    ],
+    sentiment: [
+      { name: '美元指数', value: '104.2', chg: 0.3, note: 'DXY' },
+      { name: 'VIX恐慌指数', value: '14.8', chg: -2.1, note: 'Volatility' },
+      { name: '美国10年期国债', value: '4.28%', chg: -0.03, note: 'US 10Y' },
+      { name: '中国10年期国债', value: '1.96%', chg: 0.01, note: 'CN 10Y' },
+      { name: '美元兑人民币', value: '7.10', chg: -0.2, note: 'USD/CNY' },
+      { name: '人民币汇率指数', value: '98.6', chg: 0.1, note: 'CFETS' }
+    ],
+    fx: {
+      series: [
+        { name: 'USD/CNY', color: '#2563eb', values: [7.16, 7.15, 7.17, 7.16, 7.14, 7.13, 7.12, 7.11, 7.12, 7.10] },
+        { name: 'EUR/USD', color: '#0d9f6e', values: [1.087, 1.09, 1.088, 1.092, 1.095, 1.093, 1.096, 1.099, 1.098, 1.102] },
+        { name: 'USD/JPY', color: '#f59e0b', values: [147.2, 146.8, 147.5, 146.9, 146.2, 145.8, 145.4, 145.9, 145.2, 144.8] },
+        { name: 'GBP/USD', color: '#7c3aed', values: [1.268, 1.272, 1.27, 1.275, 1.279, 1.277, 1.281, 1.285, 1.283, 1.288] },
+        { name: 'AUD/USD', color: '#dc2626', values: [0.652, 0.655, 0.654, 0.658, 0.661, 0.659, 0.663, 0.667, 0.665, 0.67] },
+        { name: 'USD/CHF', color: '#0891b2', values: [0.864, 0.862, 0.865, 0.861, 0.859, 0.86, 0.857, 0.855, 0.856, 0.853] }
+      ],
+      stats: [
+        { name: 'USD/CNY', price: '7.10', chg: 0.2, week: 0.6, month: -1.1, ytd: 2.1, high: 7.18, low: 7.05 },
+        { name: 'EUR/USD', price: '1.102', chg: 0.4, week: 0.8, month: 1.3, ytd: -0.4, high: 1.108, low: 1.085 },
+        { name: 'USD/JPY', price: '144.8', chg: -0.5, week: -1.2, month: -2.4, ytd: 3.6, high: 148.2, low: 144.2 },
+        { name: 'GBP/USD', price: '1.288', chg: 0.3, week: 0.7, month: 1.1, ytd: 0.6, high: 1.292, low: 1.265 },
+        { name: 'AUD/USD', price: '0.670', chg: 0.4, week: 0.9, month: 1.8, ytd: 2.2, high: 0.673, low: 0.648 },
+        { name: 'USD/CHF', price: '0.853', chg: -0.2, week: -0.5, month: -0.9, ytd: 1.2, high: 0.868, low: 0.851 }
+      ]
+    },
+    metals: {
+      series: [
+        { name: '现货黄金', color: '#d97706', values: [2385, 2401, 2392, 2418, 2430, 2425, 2441, 2456, 2450, 2472] },
+        { name: '白银', color: '#94a3b8', values: [27.8, 28.1, 27.9, 28.4, 28.8, 28.6, 29.0, 29.4, 29.2, 29.8] },
+        { name: '铂金', color: '#0891b2', values: [982, 990, 986, 1002, 1015, 1009, 1024, 1038, 1032, 1051] },
+        { name: '钯金', color: '#7c3aed', values: [918, 930, 925, 942, 955, 948, 966, 980, 972, 995] }
+      ],
+      stats: [
+        { name: '现货黄金', price: '2472', chg: 1.2, week: 2.1, month: 3.6, ytd: 12.8, high: 2486, low: 2302 },
+        { name: '白银', price: '29.8', chg: 1.5, week: 2.4, month: 4.2, ytd: 14.5, high: 30.1, low: 26.8 },
+        { name: '铂金', price: '1051', chg: 1.0, week: 1.8, month: 3.0, ytd: 6.2, high: 1062, low: 942 },
+        { name: '钯金', price: '995', chg: 1.3, week: 2.2, month: 4.0, ytd: 8.5, high: 1008, low: 885 }
+      ]
+    },
+    energy: {
+      series: [
+        { name: 'WTI原油', color: '#f97316', values: [78.2, 79.1, 78.5, 80.2, 79.6, 80.8, 81.4, 80.9, 82.1, 83.0] },
+        { name: '布伦特原油', color: '#7c3aed', values: [81.5, 82.4, 81.9, 83.6, 83.0, 84.1, 84.8, 84.2, 85.4, 86.2] },
+        { name: '天然气', color: '#0891b2', values: [2.42, 2.38, 2.45, 2.52, 2.49, 2.55, 2.61, 2.58, 2.66, 2.72] },
+        { name: '汽油', color: '#dc2626', values: [2.42, 2.45, 2.43, 2.49, 2.52, 2.5, 2.55, 2.58, 2.56, 2.61] }
+      ],
+      stats: [
+        { name: 'WTI原油', price: '83.0', chg: 1.5, week: 2.8, month: 5.4, ytd: 8.2, high: 83.6, low: 74.2 },
+        { name: '布伦特原油', price: '86.2', chg: 1.4, week: 2.6, month: 5.1, ytd: 7.6, high: 86.8, low: 77.5 },
+        { name: '天然气', price: '2.72', chg: 2.3, week: 4.0, month: 6.8, ytd: -12.5, high: 2.85, low: 2.18 },
+        { name: '汽油', price: '2.61', chg: 1.2, week: 2.2, month: 3.9, ytd: 4.5, high: 2.68, low: 2.31 }
+      ]
+    },
+    commodities: {
+      series: [
+        { name: '沪铜', color: '#dc2626', values: [73500, 74100, 73800, 74600, 75200, 74900, 75500, 76200, 75900, 76800] },
+        { name: '沪铝', color: '#2563eb', values: [19600, 19800, 19700, 19950, 20100, 20000, 20250, 20400, 20300, 20580] },
+        { name: '沪锌', color: '#7c3aed', values: [22800, 23100, 22950, 23300, 23550, 23400, 23700, 23950, 23800, 24120] },
+        { name: '铁矿石', color: '#0891b2', values: [760, 775, 768, 782, 795, 790, 802, 815, 810, 826] },
+        { name: '螺纹钢', color: '#0d9f6e', values: [3180, 3220, 3200, 3250, 3290, 3270, 3310, 3360, 3340, 3400] },
+        { name: '焦煤', color: '#f59e0b', values: [1380, 1405, 1392, 1420, 1445, 1432, 1460, 1488, 1472, 1505] }
+      ],
+      stats: [
+        { name: '沪铜', price: '76800', chg: 1.1, week: 2.3, month: 4.8, ytd: 9.6, high: 77200, low: 70800 },
+        { name: '沪铝', price: '20580', chg: 0.9, week: 1.8, month: 3.6, ytd: 7.2, high: 20720, low: 18850 },
+        { name: '沪锌', price: '24120', chg: 1.0, week: 2.0, month: 4.1, ytd: 8.0, high: 24280, low: 22050 },
+        { name: '沪镍', price: '129800', chg: 1.3, week: 2.5, month: 5.2, ytd: 10.5, high: 131200, low: 118600 },
+        { name: '铁矿石', price: '826', chg: 1.2, week: 2.4, month: 4.6, ytd: 9.2, high: 835, low: 742 },
+        { name: '螺纹钢', price: '3400', chg: 1.0, week: 2.0, month: 3.8, ytd: 6.4, high: 3430, low: 3050 },
+        { name: '焦煤', price: '1505', chg: 1.4, week: 2.6, month: 5.0, ytd: 9.8, high: 1520, low: 1320 },
+        { name: '动力煤', price: '912', chg: 0.8, week: 1.5, month: 2.6, ytd: 3.2, high: 925, low: 845 },
+        { name: '大豆', price: '3850', chg: 0.6, week: 1.2, month: 2.2, ytd: 4.0, high: 3880, low: 3580 },
+        { name: '玉米', price: '2280', chg: 0.4, week: 0.8, month: 1.5, ytd: 2.8, high: 2300, low: 2150 },
+        { name: '小麦', price: '2550', chg: 0.5, week: 1.0, month: 1.8, ytd: 3.4, high: 2580, low: 2400 },
+        { name: '白糖', price: '6120', chg: 0.7, week: 1.4, month: 2.4, ytd: 5.0, high: 6160, low: 5780 }
+      ]
+    },
+    agriculture: {
+      series: [
+        { name: '大豆', color: '#d97706', values: [3850, 3865, 3840, 3880, 3905, 3890, 3920, 3945, 3930, 3960] },
+        { name: '玉米', color: '#2563eb', values: [2280, 2290, 2275, 2300, 2315, 2308, 2325, 2340, 2330, 2350] },
+        { name: '小麦', color: '#0d9f6e', values: [2550, 2560, 2545, 2570, 2585, 2578, 2595, 2610, 2600, 2620] },
+        { name: '白糖', color: '#7c3aed', values: [6120, 6140, 6110, 6160, 6190, 6175, 6210, 6240, 6220, 6260] }
+      ],
+      stats: [
+        { name: '大豆', price: '3960', chg: 0.6, week: 1.2, month: 2.4, ytd: 4.2, high: 3980, low: 3680 },
+        { name: '玉米', price: '2350', chg: 0.5, week: 1.0, month: 1.8, ytd: 3.0, high: 2360, low: 2210 },
+        { name: '小麦', price: '2620', chg: 0.4, week: 0.9, month: 1.6, ytd: 2.9, high: 2640, low: 2480 },
+        { name: '白糖', price: '6260', chg: 0.7, week: 1.3, month: 2.5, ytd: 5.2, high: 6280, low: 5900 }
+      ]
+    },
+    indexFutures: {
+      series: [
+        { name: '沪深300', color: '#0d9f6e', values: [3520, 3550, 3530, 3580, 3610, 3590, 3630, 3670, 3650, 3700] },
+        { name: '上证50', color: '#2563eb', values: [2420, 2440, 2430, 2460, 2480, 2470, 2500, 2520, 2510, 2545] },
+        { name: '中证500', color: '#7c3aed', values: [5420, 5460, 5440, 5500, 5540, 5520, 5570, 5610, 5590, 5640] },
+        { name: '标普500', color: '#dc2626', values: [5580, 5600, 5590, 5620, 5650, 5640, 5670, 5700, 5690, 5720] },
+        { name: '纳斯达克100', color: '#0891b2', values: [19850, 20000, 19920, 20150, 20300, 20240, 20450, 20620, 20560, 20800] },
+        { name: '恒生指数', color: '#f59e0b', values: [17200, 17350, 17280, 17500, 17680, 17590, 17800, 18020, 17950, 18180] }
+      ],
+      stats: [
+        { name: '沪深300', price: '3700', chg: 1.4, week: 2.6, month: 5.2, ytd: 8.8, high: 3720, low: 3340 },
+        { name: '上证50', price: '2545', chg: 1.2, week: 2.2, month: 4.4, ytd: 7.4, high: 2560, low: 2310 },
+        { name: '中证500', price: '5640', chg: 1.5, week: 2.8, month: 5.6, ytd: 10.2, high: 5670, low: 5050 },
+        { name: '标普500', price: '5720', chg: 0.5, week: 1.2, month: 2.6, ytd: 11.8, high: 5730, low: 5120 },
+        { name: '纳斯达克100', price: '20800', chg: 0.8, week: 1.6, month: 3.4, ytd: 14.2, high: 20900, low: 17850 },
+        { name: '道琼斯', price: '41200', chg: 0.4, week: 1.0, month: 2.2, ytd: 8.6, high: 41350, low: 38100 },
+        { name: '恒生指数', price: '18180', chg: 1.3, week: 2.5, month: 5.0, ytd: 12.4, high: 18250, low: 15800 },
+        { name: '日经225', price: '40200', chg: 0.9, week: 1.8, month: 3.6, ytd: 9.4, high: 40400, low: 35800 },
+        { name: '富时100', price: '8290', chg: 0.4, week: 0.9, month: 1.8, ytd: 5.6, high: 8320, low: 7780 },
+        { name: '德国DAX', price: '19150', chg: 1.0, week: 2.0, month: 4.2, ytd: 13.6, high: 19250, low: 16600 }
+      ]
+    }
+  };
+
+
   window.DATA = {
-    sectors, institutions, companies, deals, flows, signals, rules, meta
+    sectors, institutions, companies, deals, flows, signals, rules, meta, markets
   };
 })();

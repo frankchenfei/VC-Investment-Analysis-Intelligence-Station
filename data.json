@@ -56,7 +56,8 @@
         "consumer"
       ],
       "scale": 9,
-      "desc": "聚焦科技、医疗与消费的长期成长投资"
+      "desc": "聚焦科技、医疗与消费的长期成长投资",
+      "website": "https://www.hillhousecap.com"
     },
     {
       "id": "inst-hs",
@@ -73,7 +74,8 @@
         "consumer"
       ],
       "scale": 10,
-      "desc": "全周期投资，覆盖种子到成长期"
+      "desc": "全周期投资，覆盖种子到成长期",
+      "website": "https://www.hongshan.com.cn"
     },
     {
       "id": "inst-idg",
@@ -88,7 +90,8 @@
         "saas"
       ],
       "scale": 9,
-      "desc": "科技与早期创业生态的长期建设者"
+      "desc": "科技与早期创业生态的长期建设者",
+      "website": "https://www.idgcapital.com"
     },
     {
       "id": "inst-jw",
@@ -102,7 +105,8 @@
         "saas"
       ],
       "scale": 8,
-      "desc": "聚焦互联网、科技与企业服务的早期基金"
+      "desc": "聚焦互联网、科技与企业服务的早期基金",
+      "website": "https://www.bing.com/search?q=%E7%BB%8F%E7%BA%AC%E5%88%9B%E6%8A%95%20%E5%AE%98%E7%BD%91"
     },
     {
       "id": "inst-yc",
@@ -116,7 +120,8 @@
         "saas"
       ],
       "scale": 8,
-      "desc": "专注数据智能与硬科技的成长基金"
+      "desc": "专注数据智能与硬科技的成长基金",
+      "website": "https://www.sourcecodecap.com"
     },
     {
       "id": "inst-qm",
@@ -130,7 +135,8 @@
         "robot"
       ],
       "scale": 7,
-      "desc": "深耕信息技术与健康医疗的双币基金"
+      "desc": "深耕信息技术与健康医疗的双币基金",
+      "website": "https://www.qimingvc.com"
     },
     {
       "id": "inst-zg",
@@ -144,7 +150,8 @@
         "saas"
       ],
       "scale": 6,
-      "desc": "专注早期创业投资的天使基金"
+      "desc": "专注早期创业投资的天使基金",
+      "website": "https://www.zhenfund.com"
     },
     {
       "id": "inst-qj",
@@ -157,7 +164,8 @@
         "robot"
       ],
       "scale": 5,
-      "desc": "专注早期硬科技创业与加速"
+      "desc": "专注早期硬科技创业与加速",
+      "website": "https://www.miracleplus.com"
     },
     {
       "id": "inst-lc",
@@ -171,7 +179,8 @@
         "ai"
       ],
       "scale": 7,
-      "desc": "关注前沿科技与机器人产业"
+      "desc": "关注前沿科技与机器人产业",
+      "website": "https://www.bing.com/search?q=%E8%93%9D%E9%A9%B0%E5%88%9B%E6%8A%95%20%E5%AE%98%E7%BD%91"
     },
     {
       "id": "inst-hd",
@@ -184,7 +193,8 @@
         "robot"
       ],
       "scale": 7,
-      "desc": "技术驱动型投资，覆盖半导体与智能硬件"
+      "desc": "技术驱动型投资，覆盖半导体与智能硬件",
+      "website": "https://www.bing.com/search?q=%E7%BA%A2%E7%82%B9%E4%B8%AD%E5%9B%BD%20%E5%AE%98%E7%BD%91"
     },
     {
       "id": "inst-xx",
@@ -197,7 +207,8 @@
         "ai"
       ],
       "scale": 5,
-      "desc": "聚焦数据智能与软件创新"
+      "desc": "聚焦数据智能与软件创新",
+      "website": "https://www.linear.vc"
     },
     {
       "id": "inst-yq",
@@ -210,7 +221,8 @@
         "ai"
       ],
       "scale": 6,
-      "desc": "投资先进制造与智能技术"
+      "desc": "投资先进制造与智能技术",
+      "website": "https://www.yunqipartners.com"
     },
     {
       "id": "inst-lx",
@@ -224,7 +236,8 @@
         "robot"
       ],
       "scale": 8,
-      "desc": "联想集团的科技产业基金"
+      "desc": "联想集团的科技产业基金",
+      "website": "https://www.lenovocapital.com"
     },
     {
       "id": "inst-tencent",
@@ -237,7 +250,8 @@
         "saas"
       ],
       "scale": 9,
-      "desc": "腾讯生态战略投资"
+      "desc": "腾讯生态战略投资",
+      "website": "https://www.tencent.com"
     },
     {
       "id": "inst-ali",
@@ -250,7 +264,8 @@
         "consumer"
       ],
       "scale": 9,
-      "desc": "阿里生态与消费科技投资"
+      "desc": "阿里生态与消费科技投资",
+      "website": "https://www.alibabagroup.com"
     },
     {
       "id": "inst-mi",
@@ -264,7 +279,8 @@
         "ai"
       ],
       "scale": 7,
-      "desc": "小米生态链与硬科技投资"
+      "desc": "小米生态链与硬科技投资",
+      "website": "https://www.mi.com"
     },
     {
       "id": "inst-byd",
@@ -277,7 +293,8 @@
         "energy"
       ],
       "scale": 7,
-      "desc": "新能源与智能制造的产业资本"
+      "desc": "新能源与智能制造的产业资本",
+      "website": "https://www.byd.com"
     },
     {
       "id": "inst-cicc",
@@ -294,7 +311,8 @@
         "consumer"
       ],
       "scale": 9,
-      "desc": "全资产类别私募股权投资平台"
+      "desc": "全资产类别私募股权投资平台",
+      "website": "https://www.cicc.com"
     },
     {
       "id": "inst-gtct",
@@ -308,7 +326,8 @@
         "mf"
       ],
       "scale": 8,
-      "desc": "国家级产业投资基金"
+      "desc": "国家级产业投资基金",
+      "website": "https://www.bing.com/search?q=%E5%9B%BD%E6%8A%95%E5%88%9B%E5%90%88%20%E5%AE%98%E7%BD%91"
     },
     {
       "id": "inst-shsc",
@@ -322,7 +341,8 @@
         "mf"
       ],
       "scale": 8,
-      "desc": "上海科创中心建设股权投资基金"
+      "desc": "上海科创中心建设股权投资基金",
+      "website": "https://www.bing.com/search?q=%E4%B8%8A%E6%B5%B7%E7%A7%91%E5%88%9B%E5%9F%BA%E9%87%91%20%E5%AE%98%E7%BD%91"
     },
     {
       "id": "inst-hfct",
@@ -336,7 +356,8 @@
         "robot"
       ],
       "scale": 7,
-      "desc": "合肥战新产业投资平台"
+      "desc": "合肥战新产业投资平台",
+      "website": "https://www.bing.com/search?q=%E5%90%88%E8%82%A5%E4%BA%A7%E6%8A%95%20%E5%AE%98%E7%BD%91"
     },
     {
       "id": "inst-szc",
@@ -351,7 +372,8 @@
         "mf"
       ],
       "scale": 8,
-      "desc": "综合性创业投资集团"
+      "desc": "综合性创业投资集团",
+      "website": "https://www.szvc.com.cn"
     },
     {
       "id": "inst-yuany",
@@ -364,7 +386,8 @@
         "ai"
       ],
       "scale": 6,
-      "desc": "苏州本地早期科技基金"
+      "desc": "苏州本地早期科技基金",
+      "website": "https://www.bing.com/search?q=%E5%85%83%E7%A6%BE%E5%8E%9F%E7%82%B9%20%E5%AE%98%E7%BD%91"
     },
     {
       "id": "inst-tongc",
@@ -377,7 +400,8 @@
         "bio"
       ],
       "scale": 6,
-      "desc": "成长期股权投资机构"
+      "desc": "成长期股权投资机构",
+      "website": "https://www.cowinvc.com"
     },
     {
       "id": "inst-gaorong",
@@ -391,7 +415,8 @@
         "saas"
       ],
       "scale": 7,
-      "desc": "专注新经济与科技的VC基金"
+      "desc": "专注新经济与科技的VC基金",
+      "website": "https://www.gaorong.vc"
     },
     {
       "id": "inst-sbvv",
@@ -405,7 +430,8 @@
         "robot"
       ],
       "scale": 9,
-      "desc": "全球科技成长基金"
+      "desc": "全球科技成长基金",
+      "website": "https://www.visionfund.com"
     },
     {
       "id": "inst-temasek",
@@ -419,7 +445,8 @@
         "bio"
       ],
       "scale": 8,
-      "desc": "新加坡主权财富基金"
+      "desc": "新加坡主权财富基金",
+      "website": "https://www.temasek.com.sg"
     },
     {
       "id": "inst-tiger",
@@ -432,7 +459,8 @@
         "consumer"
       ],
       "scale": 8,
-      "desc": "全球科技与消费成长基金"
+      "desc": "全球科技与消费成长基金",
+      "website": "https://www.tigerglobal.com"
     },
     {
       "id": "inst-plum",
@@ -446,7 +474,8 @@
         "saas"
       ],
       "scale": 7,
-      "desc": "早期科技与消费投资"
+      "desc": "早期科技与消费投资",
+      "website": "https://www.plumventures.cn"
     },
     {
       "id": "inst-legend",
@@ -460,7 +489,8 @@
         "ai"
       ],
       "scale": 8,
-      "desc": "科创与医疗健康投资"
+      "desc": "科创与医疗健康投资",
+      "website": "https://www.legendcapital.com.cn"
     },
     {
       "id": "inst-cgc",
@@ -474,7 +504,8 @@
         "saas"
       ],
       "scale": 7,
-      "desc": "早期与成长期风险投资"
+      "desc": "早期与成长期风险投资",
+      "website": "https://www.bing.com/search?q=%E5%8D%8E%E6%98%A0%E8%B5%84%E6%9C%AC%20%E5%AE%98%E7%BD%91"
     },
     {
       "id": "inst-k2",
@@ -488,7 +519,8 @@
         "saas"
       ],
       "scale": 6,
-      "desc": "消费与科技早期投资"
+      "desc": "消费与科技早期投资",
+      "website": "https://www.k2vc.com"
     },
     {
       "id": "inst-gsr",
@@ -502,7 +534,8 @@
         "robot"
       ],
       "scale": 7,
-      "desc": "AI与硬科技早期投资"
+      "desc": "AI与硬科技早期投资",
+      "website": "https://www.gsrventures.com"
     },
     {
       "id": "inst-nl",
@@ -516,7 +549,8 @@
         "chip"
       ],
       "scale": 7,
-      "desc": "深科技与半导体投资"
+      "desc": "深科技与半导体投资",
+      "website": "https://www.nlightvc.com"
     },
     {
       "id": "inst-sinovation",
@@ -530,7 +564,8 @@
         "saas"
       ],
       "scale": 7,
-      "desc": "人工智能与企业服务投资"
+      "desc": "人工智能与企业服务投资",
+      "website": "https://www.sinovationventures.com"
     },
     {
       "id": "inst-gaocheng",
@@ -543,7 +578,8 @@
         "ai"
       ],
       "scale": 6,
-      "desc": "企业软件与AI投资"
+      "desc": "企业软件与AI投资",
+      "website": "https://www.gaochengcap.com"
     },
     {
       "id": "inst-lightspeed",
@@ -557,7 +593,8 @@
         "consumer"
       ],
       "scale": 7,
-      "desc": "科技消费与机器人投资"
+      "desc": "科技消费与机器人投资",
+      "website": "https://www.lightspeedchina.com"
     },
     {
       "id": "inst-shunwei",
@@ -571,7 +608,8 @@
         "consumer"
       ],
       "scale": 7,
-      "desc": "科技与消费成长基金"
+      "desc": "科技与消费成长基金",
+      "website": "https://www.shunwei.com"
     },
     {
       "id": "inst-5y",
@@ -585,7 +623,8 @@
         "saas"
       ],
       "scale": 7,
-      "desc": "AI与互联网早期基金"
+      "desc": "AI与互联网早期基金",
+      "website": "https://www.5ycap.com"
     },
     {
       "id": "inst-ggv",
@@ -599,7 +638,8 @@
         "saas"
       ],
       "scale": 8,
-      "desc": "科技与消费成长基金"
+      "desc": "科技与消费成长基金",
+      "website": "https://www.ggvcap.com"
     },
     {
       "id": "inst-joy",
@@ -613,7 +653,8 @@
         "ai"
       ],
       "scale": 6,
-      "desc": "消费品牌成长投资"
+      "desc": "消费品牌成长投资",
+      "website": "https://www.joycapital.com"
     },
     {
       "id": "inst-casstar",
@@ -627,7 +668,8 @@
         "mf"
       ],
       "scale": 7,
-      "desc": "前沿科技产业化投资"
+      "desc": "前沿科技产业化投资",
+      "website": "https://www.casstar.com.cn"
     },
     {
       "id": "inst-inno",
@@ -641,7 +683,8 @@
         "mf"
       ],
       "scale": 5,
-      "desc": "硬科技早期孵化与投资"
+      "desc": "硬科技早期孵化与投资",
+      "website": "https://www.innoangel.com.cn"
     },
     {
       "id": "inst-frees",
@@ -655,7 +698,8 @@
         "consumer"
       ],
       "scale": 6,
-      "desc": "科技与医疗早期投资"
+      "desc": "科技与医疗早期投资",
+      "website": "https://www.freesvc.com"
     },
     {
       "id": "inst-blackant",
@@ -667,7 +711,8 @@
         "consumer"
       ],
       "scale": 6,
-      "desc": "消费品牌成长投资"
+      "desc": "消费品牌成长投资",
+      "website": "https://www.bing.com/search?q=%E9%BB%91%E8%9A%81%E8%B5%84%E6%9C%AC%20%E5%AE%98%E7%BD%91"
     },
     {
       "id": "inst-challenger",
@@ -680,7 +725,8 @@
         "saas"
       ],
       "scale": 5,
-      "desc": "新消费与互联网投资"
+      "desc": "新消费与互联网投资",
+      "website": "https://www.bing.com/search?q=%E6%8C%91%E6%88%98%E8%80%85%E5%88%9B%E6%8A%95%20%E5%AE%98%E7%BD%91"
     },
     {
       "id": "inst-off",
@@ -694,7 +740,8 @@
         "bio"
       ],
       "scale": 6,
-      "desc": "先进制造与新能源投资"
+      "desc": "先进制造与新能源投资",
+      "website": "https://www.bing.com/search?q=%E4%B8%9C%E6%96%B9%E5%AF%8C%E6%B5%B7%20%E5%AE%98%E7%BD%91"
     },
     {
       "id": "inst-fortune",
@@ -708,7 +755,8 @@
         "ai"
       ],
       "scale": 7,
-      "desc": "智能制造与科技投资"
+      "desc": "智能制造与科技投资",
+      "website": "https://www.bing.com/search?q=%E8%BE%BE%E6%99%A8%E8%B4%A2%E6%99%BA%20%E5%AE%98%E7%BD%91"
     }
   ],
   "companies": [
@@ -725,7 +773,8 @@
         "大模型",
         "行业智能"
       ],
-      "desc": "国产大模型头部厂商，政务与金融场景规模化落地"
+      "desc": "国产大模型头部厂商，政务与金融场景规模化落地",
+      "website": "https://www.zhipuai.cn"
     },
     {
       "id": "co-moonshot",
@@ -740,7 +789,8 @@
         "大模型",
         "C端应用"
       ],
-      "desc": "Kimi智能助手背后的模型公司"
+      "desc": "Kimi智能助手背后的模型公司",
+      "website": "https://www.moonshot.cn"
     },
     {
       "id": "co-minimax",
@@ -755,7 +805,8 @@
         "大模型",
         "多模态"
       ],
-      "desc": "多模态大模型与AI陪伴产品公司"
+      "desc": "多模态大模型与AI陪伴产品公司",
+      "website": "https://www.minimax.io"
     },
     {
       "id": "co-baichuan",
@@ -770,7 +821,8 @@
         "大模型",
         "医疗AI"
       ],
-      "desc": "通用与医疗大模型创业公司"
+      "desc": "通用与医疗大模型创业公司",
+      "website": "https://www.baichuan-ai.com"
     },
     {
       "id": "co-01ai",
@@ -785,7 +837,8 @@
         "大模型",
         "AI Infra"
       ],
-      "desc": "李开复创立的AI大模型公司"
+      "desc": "李开复创立的AI大模型公司",
+      "website": "https://www.01.ai"
     },
     {
       "id": "co-stepfun",
@@ -800,7 +853,8 @@
         "大模型",
         "Agent"
       ],
-      "desc": "多模态与Agent方向的大模型公司"
+      "desc": "多模态与Agent方向的大模型公司",
+      "website": "https://www.stepfun.com"
     },
     {
       "id": "co-infinigence",
@@ -815,7 +869,8 @@
         "AI Infra",
         "算力"
       ],
-      "desc": "AI算力基础设施公司"
+      "desc": "AI算力基础设施公司",
+      "website": "https://www.infinigence.ai"
     },
     {
       "id": "co-luchen",
@@ -830,7 +885,8 @@
         "大模型",
         "分布式训练"
       ],
-      "desc": "大模型训练推理系统公司"
+      "desc": "大模型训练推理系统公司",
+      "website": "https://www.bing.com/search?q=%E6%BD%9E%E6%99%A8%E7%A7%91%E6%8A%80%20%E5%AE%98%E7%BD%91"
     },
     {
       "id": "co-unitree",
@@ -845,7 +901,8 @@
         "人形机器人",
         "四足"
       ],
-      "desc": "四足与人形机器人整机公司"
+      "desc": "四足与人形机器人整机公司",
+      "website": "https://www.unitree.com"
     },
     {
       "id": "co-agibot",
@@ -860,7 +917,8 @@
         "人形机器人",
         "具身智能"
       ],
-      "desc": "稚晖君创立的通用机器人公司"
+      "desc": "稚晖君创立的通用机器人公司",
+      "website": "https://www.zhiyuan-robot.com"
     },
     {
       "id": "co-galaxy",
@@ -875,7 +933,8 @@
         "人形机器人",
         "大模型"
       ],
-      "desc": "通用具身智能机器人公司"
+      "desc": "通用具身智能机器人公司",
+      "website": "https://www.galbot.com"
     },
     {
       "id": "co-starnova",
@@ -889,7 +948,8 @@
       "tags": [
         "人形机器人"
       ],
-      "desc": "清华系人形机器人公司"
+      "desc": "清华系人形机器人公司",
+      "website": "https://www.bing.com/search?q=%E6%98%9F%E5%8A%A8%E7%BA%AA%E5%85%83%20%E5%AE%98%E7%BD%91"
     },
     {
       "id": "co-limxd",
@@ -904,7 +964,8 @@
         "人形机器人",
         "足式"
       ],
-      "desc": "足式与通用机器人公司"
+      "desc": "足式与通用机器人公司",
+      "website": "https://www.limxdynamics.com"
     },
     {
       "id": "co-pacinn",
@@ -919,7 +980,8 @@
         "触觉传感",
         "机器人"
       ],
-      "desc": "多维触觉传感与人形机器人公司"
+      "desc": "多维触觉传感与人形机器人公司",
+      "website": "https://www.bing.com/search?q=%E5%B8%95%E8%A5%BF%E5%B0%BC%E6%84%9F%E7%9F%A5%20%E5%AE%98%E7%BD%91"
     },
     {
       "id": "co-cloudwood",
@@ -934,7 +996,8 @@
         "四足机器人",
         "巡检"
       ],
-      "desc": "四足机器人整机与行业方案公司"
+      "desc": "四足机器人整机与行业方案公司",
+      "website": "https://www.deeprobotics.cn"
     },
     {
       "id": "co-autozi",
@@ -949,7 +1012,8 @@
         "具身智能",
         "机器人大模型"
       ],
-      "desc": "具身智能通用模型公司"
+      "desc": "具身智能通用模型公司",
+      "website": "https://www.bing.com/search?q=%E8%87%AA%E5%8F%98%E9%87%8F%E6%9C%BA%E5%99%A8%E4%BA%BA%20%E5%AE%98%E7%BD%91"
     },
     {
       "id": "co-biren",
@@ -964,7 +1028,8 @@
         "GPU",
         "算力"
       ],
-      "desc": "国产高性能GPU与AI算力公司"
+      "desc": "国产高性能GPU与AI算力公司",
+      "website": "https://www.birentech.com"
     },
     {
       "id": "co-muxi",
@@ -979,7 +1044,8 @@
         "GPU",
         "AI芯片"
       ],
-      "desc": "全栈GPU芯片设计公司"
+      "desc": "全栈GPU芯片设计公司",
+      "website": "https://www.metax-tech.com"
     },
     {
       "id": "co-moore",
@@ -994,7 +1060,8 @@
         "GPU",
         "国产化"
       ],
-      "desc": "国产全功能GPU公司"
+      "desc": "国产全功能GPU公司",
+      "website": "https://www.moorethreads.cn"
     },
     {
       "id": "co-suan",
@@ -1009,7 +1076,8 @@
         "AI芯片",
         "算力"
       ],
-      "desc": "云端AI训练与推理芯片公司"
+      "desc": "云端AI训练与推理芯片公司",
+      "website": "https://www.enflame-tech.com"
     },
     {
       "id": "co-sic",
@@ -1024,7 +1092,8 @@
         "车规芯片",
         "座舱"
       ],
-      "desc": "智能汽车座舱与网关芯片公司"
+      "desc": "智能汽车座舱与网关芯片公司",
+      "website": "https://www.bing.com/search?q=%E8%8A%AF%E9%A9%B0%E7%A7%91%E6%8A%80%20%E5%AE%98%E7%BD%91"
     },
     {
       "id": "co-tianshu",
@@ -1039,7 +1108,8 @@
         "GPGPU",
         "AI算力"
       ],
-      "desc": "通用GPU云端训练芯片公司"
+      "desc": "通用GPU云端训练芯片公司",
+      "website": "https://www.iluvatar.com"
     },
     {
       "id": "co-hanbo",
@@ -1054,7 +1124,8 @@
         "AI芯片",
         "视频"
       ],
-      "desc": "AI视觉与视频处理芯片公司"
+      "desc": "AI视觉与视频处理芯片公司",
+      "website": "https://www.vastaitech.com"
     },
     {
       "id": "co-tailan",
@@ -1068,7 +1139,8 @@
       "tags": [
         "固态电池"
       ],
-      "desc": "半固态与全固态电池公司"
+      "desc": "半固态与全固态电池公司",
+      "website": "https://www.bing.com/search?q=%E5%A4%AA%E8%93%9D%E6%96%B0%E8%83%BD%E6%BA%90%20%E5%AE%98%E7%BD%91"
     },
     {
       "id": "co-weilan",
@@ -1083,7 +1155,8 @@
         "固态电池",
         "储能"
       ],
-      "desc": "固态电池技术公司"
+      "desc": "固态电池技术公司",
+      "website": "https://www.welion.com.cn"
     },
     {
       "id": "co-ronghe",
@@ -1097,7 +1170,8 @@
       "tags": [
         "储能系统"
       ],
-      "desc": "工商业储能系统公司"
+      "desc": "工商业储能系统公司",
+      "website": "https://www.bing.com/search?q=%E8%9E%8D%E5%92%8C%E5%85%83%E5%82%A8%20%E5%AE%98%E7%BD%91"
     },
     {
       "id": "co-yidao",
@@ -1112,7 +1186,8 @@
         "光伏组件",
         "N型"
       ],
-      "desc": "高效光伏组件制造公司"
+      "desc": "高效光伏组件制造公司",
+      "website": "https://www.yidaosolar.com"
     },
     {
       "id": "co-zhongrun",
@@ -1126,7 +1201,8 @@
       "tags": [
         "光伏电池"
       ],
-      "desc": "光伏电池片生产商"
+      "desc": "光伏电池片生产商",
+      "website": "https://www.bing.com/search?q=%E4%B8%AD%E6%B6%A6%E5%85%89%E8%83%BD%20%E5%AE%98%E7%BD%91"
     },
     {
       "id": "co-xinnuo",
@@ -1141,7 +1217,8 @@
         "创新药",
         "ADC"
       ],
-      "desc": "肿瘤与自身免疫创新药公司"
+      "desc": "肿瘤与自身免疫创新药公司",
+      "website": "https://www.bing.com/search?q=%E4%BF%A1%E8%AF%BA%E7%BB%B4%20%E5%AE%98%E7%BD%91"
     },
     {
       "id": "co-yimeng",
@@ -1156,7 +1233,8 @@
         "创新药",
         "双抗"
       ],
-      "desc": "肿瘤免疫双抗药物公司"
+      "desc": "肿瘤免疫双抗药物公司",
+      "website": "https://www.bing.com/search?q=%E5%AE%9C%E6%98%8E%E6%98%82%E7%A7%91%20%E5%AE%98%E7%BD%91"
     },
     {
       "id": "co-yingeng",
@@ -1171,7 +1249,8 @@
         "ADC",
         "创新药"
       ],
-      "desc": "ADC药物研发公司"
+      "desc": "ADC药物研发公司",
+      "website": "https://www.dualitybiologics.com"
     },
     {
       "id": "co-xiansheng",
@@ -1186,7 +1265,8 @@
         "创新药",
         "肿瘤"
       ],
-      "desc": "先声药业创新药平台"
+      "desc": "先声药业创新药平台",
+      "website": "https://www.simcere.com"
     },
     {
       "id": "co-pufang",
@@ -1201,7 +1281,8 @@
         "ADC",
         "创新药"
       ],
-      "desc": "ADC新药研发公司"
+      "desc": "ADC新药研发公司",
+      "website": "https://www.profoundbio.com"
     },
     {
       "id": "co-sensors",
@@ -1216,7 +1297,8 @@
         "数据分析",
         "营销科技"
       ],
-      "desc": "客户数据与分析平台"
+      "desc": "客户数据与分析平台",
+      "website": "https://www.sensorsdata.cn"
     },
     {
       "id": "co-minglue",
@@ -1231,7 +1313,8 @@
         "知识图谱",
         "企业服务"
       ],
-      "desc": "企业级AI与知识图谱服务商"
+      "desc": "企业级AI与知识图谱服务商",
+      "website": "https://www.mininglamp.com"
     },
     {
       "id": "co-lanma",
@@ -1246,7 +1329,8 @@
         "Agent",
         "RPA"
       ],
-      "desc": "大模型驱动的流程自动化公司"
+      "desc": "大模型驱动的流程自动化公司",
+      "website": "https://www.bing.com/search?q=%E6%BE%9C%E7%A0%81%E7%A7%91%E6%8A%80%20%E5%AE%98%E7%BD%91"
     },
     {
       "id": "co-shizai",
@@ -1261,7 +1345,8 @@
         "RPA",
         "智能体"
       ],
-      "desc": "智能体与RPA产品公司"
+      "desc": "智能体与RPA产品公司",
+      "website": "https://www.bing.com/search?q=%E5%AE%9E%E5%9C%A8%E6%99%BA%E8%83%BD%20%E5%AE%98%E7%BD%91"
     },
     {
       "id": "co-fenbeitong",
@@ -1276,7 +1361,8 @@
         "费控",
         "SaaS"
       ],
-      "desc": "企业费用管理SaaS平台"
+      "desc": "企业费用管理SaaS平台",
+      "website": "https://www.fenbeitong.com"
     },
     {
       "id": "co-sitan",
@@ -1291,7 +1377,8 @@
         "Micro-LED",
         "显示"
       ],
-      "desc": "Micro-LED显示技术公司"
+      "desc": "Micro-LED显示技术公司",
+      "website": "https://www.bing.com/search?q=%E6%80%9D%E5%9D%A6%E7%A7%91%E6%8A%80%20%E5%AE%98%E7%BD%91"
     },
     {
       "id": "co-huazhuo",
@@ -1306,7 +1393,8 @@
         "光刻机",
         "精密制造"
       ],
-      "desc": "半导体光刻机核心部件公司"
+      "desc": "半导体光刻机核心部件公司",
+      "website": "https://www.bing.com/search?q=%E5%8D%8E%E5%8D%93%E7%B2%BE%E7%A7%91%20%E5%AE%98%E7%BD%91"
     },
     {
       "id": "co-lingming",
@@ -1321,7 +1409,8 @@
         "SPAD",
         "激光雷达"
       ],
-      "desc": "单光子探测器芯片公司"
+      "desc": "单光子探测器芯片公司",
+      "website": "https://www.bing.com/search?q=%E7%81%B5%E6%98%8E%E5%85%89%E5%AD%90%20%E5%AE%98%E7%BD%91"
     },
     {
       "id": "co-atum",
@@ -1336,7 +1425,8 @@
         "工业机器人",
         "并联"
       ],
-      "desc": "高速并联工业机器人公司"
+      "desc": "高速并联工业机器人公司",
+      "website": "https://www.bing.com/search?q=%E9%98%BF%E7%AB%A5%E6%9C%A8%E6%9C%BA%E5%99%A8%E4%BA%BA%20%E5%AE%98%E7%BD%91"
     },
     {
       "id": "co-bawang",
@@ -1351,7 +1441,8 @@
         "新茶饮",
         "出海"
       ],
-      "desc": "原叶鲜奶茶连锁品牌"
+      "desc": "原叶鲜奶茶连锁品牌",
+      "website": "https://www.bawangchaji.com"
     },
     {
       "id": "co-cotti",
@@ -1365,7 +1456,8 @@
       "tags": [
         "咖啡连锁"
       ],
-      "desc": "平价咖啡连锁品牌"
+      "desc": "平价咖啡连锁品牌",
+      "website": "https://www.cotti.com"
     },
     {
       "id": "co-lingshi",
@@ -1379,7 +1471,8 @@
       "tags": [
         "零食量贩"
       ],
-      "desc": "量贩零食连锁品牌"
+      "desc": "量贩零食连锁品牌",
+      "website": "https://www.bing.com/search?q=%E9%9B%B6%E9%A3%9F%E5%BE%88%E5%BF%99%20%E5%AE%98%E7%BD%91"
     },
     {
       "id": "co-mixue",
@@ -1394,7 +1487,8 @@
         "茶饮连锁",
         "供应链"
       ],
-      "desc": "万店茶饮供应链公司"
+      "desc": "万店茶饮供应链公司",
+      "website": "https://www.mixue.com"
     },
     {
       "id": "co-shengshu",
@@ -1409,7 +1503,8 @@
         "多模态",
         "视频生成"
       ],
-      "desc": "多模态视频生成模型公司"
+      "desc": "多模态视频生成模型公司",
+      "website": "https://www.shengshu-ai.com"
     },
     {
       "id": "co-modelbest",
@@ -1423,7 +1518,8 @@
       "tags": [
         "端侧大模型"
       ],
-      "desc": "端侧大模型公司"
+      "desc": "端侧大模型公司",
+      "website": "https://www.modelbest.cn"
     },
     {
       "id": "co-deeplang",
@@ -1437,7 +1533,8 @@
       "tags": [
         "AI写作"
       ],
-      "desc": "AI写作与文本生成公司"
+      "desc": "AI写作与文本生成公司",
+      "website": "https://www.deeplang.ai"
     },
     {
       "id": "co-silicon",
@@ -1452,7 +1549,8 @@
         "AI Infra",
         "推理"
       ],
-      "desc": "AI推理与模型服务基础设施"
+      "desc": "AI推理与模型服务基础设施",
+      "website": "https://www.siliconflow.cn"
     },
     {
       "id": "co-fourier",
@@ -1467,7 +1565,8 @@
         "康复机器人",
         "人形"
       ],
-      "desc": "康复与人形机器人公司"
+      "desc": "康复与人形机器人公司",
+      "website": "https://www.fftai.com"
     },
     {
       "id": "co-dreame",
@@ -1482,7 +1581,8 @@
         "扫地机器人",
         "人形"
       ],
-      "desc": "智能清洁与家庭服务机器人公司"
+      "desc": "智能清洁与家庭服务机器人公司",
+      "website": "https://www.dreame.tech"
     },
     {
       "id": "co-leju",
@@ -1496,7 +1596,8 @@
       "tags": [
         "人形机器人"
       ],
-      "desc": "人形机器人整机公司"
+      "desc": "人形机器人整机公司",
+      "website": "https://www.lejurobot.com"
     },
     {
       "id": "co-ubtech",
@@ -1510,7 +1611,8 @@
       "tags": [
         "人形机器人"
       ],
-      "desc": "人形机器人与智能服务机器人公司"
+      "desc": "人形机器人与智能服务机器人公司",
+      "website": "https://www.ubtrobot.com"
     },
     {
       "id": "co-bst",
@@ -1525,7 +1627,8 @@
         "车规芯片",
         "自动驾驶"
       ],
-      "desc": "车规级自动驾驶芯片公司"
+      "desc": "车规级自动驾驶芯片公司",
+      "website": "https://www.blacksesame.com.cn"
     },
     {
       "id": "co-siengine",
@@ -1539,7 +1642,8 @@
       "tags": [
         "车规SoC"
       ],
-      "desc": "智能座舱与自动驾驶SoC公司"
+      "desc": "智能座舱与自动驾驶SoC公司",
+      "website": "https://www.bing.com/search?q=%E8%8A%AF%E6%93%8E%E7%A7%91%E6%8A%80%20%E5%AE%98%E7%BD%91"
     },
     {
       "id": "co-xepic",
@@ -1553,7 +1657,8 @@
       "tags": [
         "EDA"
       ],
-      "desc": "数字验证EDA工具公司"
+      "desc": "数字验证EDA工具公司",
+      "website": "https://www.xepic.com"
     },
     {
       "id": "co-svolt",
@@ -1567,7 +1672,8 @@
       "tags": [
         "动力电池"
       ],
-      "desc": "动力电池与储能电芯公司"
+      "desc": "动力电池与储能电芯公司",
+      "website": "https://www.svolt.cn"
     },
     {
       "id": "co-aesc",
@@ -1582,7 +1688,8 @@
         "动力电池",
         "储能"
       ],
-      "desc": "动力电池研发与制造公司"
+      "desc": "动力电池研发与制造公司",
+      "website": "https://www.aesc-group.com"
     },
     {
       "id": "co-keymed",
@@ -1597,7 +1704,8 @@
         "创新药",
         "肿瘤"
       ],
-      "desc": "肿瘤免疫创新药公司"
+      "desc": "肿瘤免疫创新药公司",
+      "website": "https://www.keymedbio.com"
     },
     {
       "id": "co-jacobio",
@@ -1611,7 +1719,8 @@
       "tags": [
         "小分子创新药"
       ],
-      "desc": "小分子创新药公司"
+      "desc": "小分子创新药公司",
+      "website": "https://www.jacobio.com"
     },
     {
       "id": "co-neocrm",
@@ -1625,7 +1734,8 @@
       "tags": [
         "CRM"
       ],
-      "desc": "企业级CRM平台"
+      "desc": "企业级CRM平台",
+      "website": "https://www.xiaoshouyi.com"
     },
     {
       "id": "co-fxiaoke",
@@ -1639,7 +1749,8 @@
       "tags": [
         "CRM"
       ],
-      "desc": "协同与连接型CRM SaaS"
+      "desc": "协同与连接型CRM SaaS",
+      "website": "https://www.fxiaoke.com"
     },
     {
       "id": "co-dobot",
@@ -1653,7 +1764,8 @@
       "tags": [
         "协作机器人"
       ],
-      "desc": "协作机器人公司"
+      "desc": "协作机器人公司",
+      "website": "https://www.dobot.cc"
     },
     {
       "id": "co-chapanda",
@@ -1667,7 +1779,8 @@
       "tags": [
         "新茶饮"
       ],
-      "desc": "新茶饮连锁品牌"
+      "desc": "新茶饮连锁品牌",
+      "website": "https://www.chabaidao.com"
     },
     {
       "id": "co-heytea",
@@ -1681,7 +1794,8 @@
       "tags": [
         "新茶饮"
       ],
-      "desc": "现制茶饮连锁品牌"
+      "desc": "现制茶饮连锁品牌",
+      "website": "https://www.heytea.com"
     }
   ],
   "deals": [
@@ -4583,5 +4697,1071 @@
         "label": "近12个月"
       }
     ]
+  },
+  "markets": {
+    "labels": [
+      "08/07",
+      "08/10",
+      "08/11",
+      "08/12",
+      "08/13",
+      "08/14",
+      "08/17",
+      "08/18",
+      "08/19",
+      "08/20"
+    ],
+    "quotes": [
+      {
+        "name": "美元指数",
+        "value": "104.2",
+        "chg": 0.3,
+        "up": true
+      },
+      {
+        "name": "现货黄金",
+        "value": "2472",
+        "chg": 1.2,
+        "up": true
+      },
+      {
+        "name": "白银",
+        "value": "29.8",
+        "chg": 1.5,
+        "up": true
+      },
+      {
+        "name": "WTI原油",
+        "value": "83.0",
+        "chg": 1.5,
+        "up": true
+      },
+      {
+        "name": "布伦特原油",
+        "value": "86.2",
+        "chg": 1.4,
+        "up": true
+      },
+      {
+        "name": "天然气",
+        "value": "2.72",
+        "chg": 2.3,
+        "up": true
+      },
+      {
+        "name": "沪铜",
+        "value": "76800",
+        "chg": 1.1,
+        "up": true
+      },
+      {
+        "name": "铁矿石",
+        "value": "826",
+        "chg": 1.2,
+        "up": true
+      },
+      {
+        "name": "沪深300",
+        "value": "3700",
+        "chg": 1.4,
+        "up": true
+      },
+      {
+        "name": "标普500",
+        "value": "5720",
+        "chg": 0.5,
+        "up": true
+      },
+      {
+        "name": "恒生指数",
+        "value": "18180",
+        "chg": 1.3,
+        "up": true
+      },
+      {
+        "name": "纳斯达克100",
+        "value": "20800",
+        "chg": 0.8,
+        "up": true
+      },
+      {
+        "name": "美元兑人民币",
+        "value": "7.10",
+        "chg": -0.2,
+        "up": false
+      },
+      {
+        "name": "欧元美元",
+        "value": "1.102",
+        "chg": 0.4,
+        "up": true
+      },
+      {
+        "name": "美元日元",
+        "value": "144.8",
+        "chg": -0.5,
+        "up": false
+      },
+      {
+        "name": "VIX恐慌指数",
+        "value": "14.8",
+        "chg": -2.1,
+        "up": false
+      }
+    ],
+    "sentiment": [
+      {
+        "name": "美元指数",
+        "value": "104.2",
+        "chg": 0.3,
+        "note": "DXY"
+      },
+      {
+        "name": "VIX恐慌指数",
+        "value": "14.8",
+        "chg": -2.1,
+        "note": "Volatility"
+      },
+      {
+        "name": "美国10年期国债",
+        "value": "4.28%",
+        "chg": -0.03,
+        "note": "US 10Y"
+      },
+      {
+        "name": "中国10年期国债",
+        "value": "1.96%",
+        "chg": 0.01,
+        "note": "CN 10Y"
+      },
+      {
+        "name": "美元兑人民币",
+        "value": "7.10",
+        "chg": -0.2,
+        "note": "USD/CNY"
+      },
+      {
+        "name": "人民币汇率指数",
+        "value": "98.6",
+        "chg": 0.1,
+        "note": "CFETS"
+      }
+    ],
+    "fx": {
+      "series": [
+        {
+          "name": "USD/CNY",
+          "color": "#2563eb",
+          "values": [
+            7.16,
+            7.15,
+            7.17,
+            7.16,
+            7.14,
+            7.13,
+            7.12,
+            7.11,
+            7.12,
+            7.1
+          ]
+        },
+        {
+          "name": "EUR/USD",
+          "color": "#0d9f6e",
+          "values": [
+            1.087,
+            1.09,
+            1.088,
+            1.092,
+            1.095,
+            1.093,
+            1.096,
+            1.099,
+            1.098,
+            1.102
+          ]
+        },
+        {
+          "name": "USD/JPY",
+          "color": "#f59e0b",
+          "values": [
+            147.2,
+            146.8,
+            147.5,
+            146.9,
+            146.2,
+            145.8,
+            145.4,
+            145.9,
+            145.2,
+            144.8
+          ]
+        },
+        {
+          "name": "GBP/USD",
+          "color": "#7c3aed",
+          "values": [
+            1.268,
+            1.272,
+            1.27,
+            1.275,
+            1.279,
+            1.277,
+            1.281,
+            1.285,
+            1.283,
+            1.288
+          ]
+        },
+        {
+          "name": "AUD/USD",
+          "color": "#dc2626",
+          "values": [
+            0.652,
+            0.655,
+            0.654,
+            0.658,
+            0.661,
+            0.659,
+            0.663,
+            0.667,
+            0.665,
+            0.67
+          ]
+        },
+        {
+          "name": "USD/CHF",
+          "color": "#0891b2",
+          "values": [
+            0.864,
+            0.862,
+            0.865,
+            0.861,
+            0.859,
+            0.86,
+            0.857,
+            0.855,
+            0.856,
+            0.853
+          ]
+        }
+      ],
+      "stats": [
+        {
+          "name": "USD/CNY",
+          "price": "7.10",
+          "chg": 0.2,
+          "week": 0.6,
+          "month": -1.1,
+          "ytd": 2.1,
+          "high": 7.18,
+          "low": 7.05
+        },
+        {
+          "name": "EUR/USD",
+          "price": "1.102",
+          "chg": 0.4,
+          "week": 0.8,
+          "month": 1.3,
+          "ytd": -0.4,
+          "high": 1.108,
+          "low": 1.085
+        },
+        {
+          "name": "USD/JPY",
+          "price": "144.8",
+          "chg": -0.5,
+          "week": -1.2,
+          "month": -2.4,
+          "ytd": 3.6,
+          "high": 148.2,
+          "low": 144.2
+        },
+        {
+          "name": "GBP/USD",
+          "price": "1.288",
+          "chg": 0.3,
+          "week": 0.7,
+          "month": 1.1,
+          "ytd": 0.6,
+          "high": 1.292,
+          "low": 1.265
+        },
+        {
+          "name": "AUD/USD",
+          "price": "0.670",
+          "chg": 0.4,
+          "week": 0.9,
+          "month": 1.8,
+          "ytd": 2.2,
+          "high": 0.673,
+          "low": 0.648
+        },
+        {
+          "name": "USD/CHF",
+          "price": "0.853",
+          "chg": -0.2,
+          "week": -0.5,
+          "month": -0.9,
+          "ytd": 1.2,
+          "high": 0.868,
+          "low": 0.851
+        }
+      ]
+    },
+    "metals": {
+      "series": [
+        {
+          "name": "现货黄金",
+          "color": "#d97706",
+          "values": [
+            2385,
+            2401,
+            2392,
+            2418,
+            2430,
+            2425,
+            2441,
+            2456,
+            2450,
+            2472
+          ]
+        },
+        {
+          "name": "白银",
+          "color": "#94a3b8",
+          "values": [
+            27.8,
+            28.1,
+            27.9,
+            28.4,
+            28.8,
+            28.6,
+            29,
+            29.4,
+            29.2,
+            29.8
+          ]
+        },
+        {
+          "name": "铂金",
+          "color": "#0891b2",
+          "values": [
+            982,
+            990,
+            986,
+            1002,
+            1015,
+            1009,
+            1024,
+            1038,
+            1032,
+            1051
+          ]
+        },
+        {
+          "name": "钯金",
+          "color": "#7c3aed",
+          "values": [
+            918,
+            930,
+            925,
+            942,
+            955,
+            948,
+            966,
+            980,
+            972,
+            995
+          ]
+        }
+      ],
+      "stats": [
+        {
+          "name": "现货黄金",
+          "price": "2472",
+          "chg": 1.2,
+          "week": 2.1,
+          "month": 3.6,
+          "ytd": 12.8,
+          "high": 2486,
+          "low": 2302
+        },
+        {
+          "name": "白银",
+          "price": "29.8",
+          "chg": 1.5,
+          "week": 2.4,
+          "month": 4.2,
+          "ytd": 14.5,
+          "high": 30.1,
+          "low": 26.8
+        },
+        {
+          "name": "铂金",
+          "price": "1051",
+          "chg": 1,
+          "week": 1.8,
+          "month": 3,
+          "ytd": 6.2,
+          "high": 1062,
+          "low": 942
+        },
+        {
+          "name": "钯金",
+          "price": "995",
+          "chg": 1.3,
+          "week": 2.2,
+          "month": 4,
+          "ytd": 8.5,
+          "high": 1008,
+          "low": 885
+        }
+      ]
+    },
+    "energy": {
+      "series": [
+        {
+          "name": "WTI原油",
+          "color": "#f97316",
+          "values": [
+            78.2,
+            79.1,
+            78.5,
+            80.2,
+            79.6,
+            80.8,
+            81.4,
+            80.9,
+            82.1,
+            83
+          ]
+        },
+        {
+          "name": "布伦特原油",
+          "color": "#7c3aed",
+          "values": [
+            81.5,
+            82.4,
+            81.9,
+            83.6,
+            83,
+            84.1,
+            84.8,
+            84.2,
+            85.4,
+            86.2
+          ]
+        },
+        {
+          "name": "天然气",
+          "color": "#0891b2",
+          "values": [
+            2.42,
+            2.38,
+            2.45,
+            2.52,
+            2.49,
+            2.55,
+            2.61,
+            2.58,
+            2.66,
+            2.72
+          ]
+        },
+        {
+          "name": "汽油",
+          "color": "#dc2626",
+          "values": [
+            2.42,
+            2.45,
+            2.43,
+            2.49,
+            2.52,
+            2.5,
+            2.55,
+            2.58,
+            2.56,
+            2.61
+          ]
+        }
+      ],
+      "stats": [
+        {
+          "name": "WTI原油",
+          "price": "83.0",
+          "chg": 1.5,
+          "week": 2.8,
+          "month": 5.4,
+          "ytd": 8.2,
+          "high": 83.6,
+          "low": 74.2
+        },
+        {
+          "name": "布伦特原油",
+          "price": "86.2",
+          "chg": 1.4,
+          "week": 2.6,
+          "month": 5.1,
+          "ytd": 7.6,
+          "high": 86.8,
+          "low": 77.5
+        },
+        {
+          "name": "天然气",
+          "price": "2.72",
+          "chg": 2.3,
+          "week": 4,
+          "month": 6.8,
+          "ytd": -12.5,
+          "high": 2.85,
+          "low": 2.18
+        },
+        {
+          "name": "汽油",
+          "price": "2.61",
+          "chg": 1.2,
+          "week": 2.2,
+          "month": 3.9,
+          "ytd": 4.5,
+          "high": 2.68,
+          "low": 2.31
+        }
+      ]
+    },
+    "commodities": {
+      "series": [
+        {
+          "name": "沪铜",
+          "color": "#dc2626",
+          "values": [
+            73500,
+            74100,
+            73800,
+            74600,
+            75200,
+            74900,
+            75500,
+            76200,
+            75900,
+            76800
+          ]
+        },
+        {
+          "name": "沪铝",
+          "color": "#2563eb",
+          "values": [
+            19600,
+            19800,
+            19700,
+            19950,
+            20100,
+            20000,
+            20250,
+            20400,
+            20300,
+            20580
+          ]
+        },
+        {
+          "name": "沪锌",
+          "color": "#7c3aed",
+          "values": [
+            22800,
+            23100,
+            22950,
+            23300,
+            23550,
+            23400,
+            23700,
+            23950,
+            23800,
+            24120
+          ]
+        },
+        {
+          "name": "铁矿石",
+          "color": "#0891b2",
+          "values": [
+            760,
+            775,
+            768,
+            782,
+            795,
+            790,
+            802,
+            815,
+            810,
+            826
+          ]
+        },
+        {
+          "name": "螺纹钢",
+          "color": "#0d9f6e",
+          "values": [
+            3180,
+            3220,
+            3200,
+            3250,
+            3290,
+            3270,
+            3310,
+            3360,
+            3340,
+            3400
+          ]
+        },
+        {
+          "name": "焦煤",
+          "color": "#f59e0b",
+          "values": [
+            1380,
+            1405,
+            1392,
+            1420,
+            1445,
+            1432,
+            1460,
+            1488,
+            1472,
+            1505
+          ]
+        }
+      ],
+      "stats": [
+        {
+          "name": "沪铜",
+          "price": "76800",
+          "chg": 1.1,
+          "week": 2.3,
+          "month": 4.8,
+          "ytd": 9.6,
+          "high": 77200,
+          "low": 70800
+        },
+        {
+          "name": "沪铝",
+          "price": "20580",
+          "chg": 0.9,
+          "week": 1.8,
+          "month": 3.6,
+          "ytd": 7.2,
+          "high": 20720,
+          "low": 18850
+        },
+        {
+          "name": "沪锌",
+          "price": "24120",
+          "chg": 1,
+          "week": 2,
+          "month": 4.1,
+          "ytd": 8,
+          "high": 24280,
+          "low": 22050
+        },
+        {
+          "name": "沪镍",
+          "price": "129800",
+          "chg": 1.3,
+          "week": 2.5,
+          "month": 5.2,
+          "ytd": 10.5,
+          "high": 131200,
+          "low": 118600
+        },
+        {
+          "name": "铁矿石",
+          "price": "826",
+          "chg": 1.2,
+          "week": 2.4,
+          "month": 4.6,
+          "ytd": 9.2,
+          "high": 835,
+          "low": 742
+        },
+        {
+          "name": "螺纹钢",
+          "price": "3400",
+          "chg": 1,
+          "week": 2,
+          "month": 3.8,
+          "ytd": 6.4,
+          "high": 3430,
+          "low": 3050
+        },
+        {
+          "name": "焦煤",
+          "price": "1505",
+          "chg": 1.4,
+          "week": 2.6,
+          "month": 5,
+          "ytd": 9.8,
+          "high": 1520,
+          "low": 1320
+        },
+        {
+          "name": "动力煤",
+          "price": "912",
+          "chg": 0.8,
+          "week": 1.5,
+          "month": 2.6,
+          "ytd": 3.2,
+          "high": 925,
+          "low": 845
+        },
+        {
+          "name": "大豆",
+          "price": "3850",
+          "chg": 0.6,
+          "week": 1.2,
+          "month": 2.2,
+          "ytd": 4,
+          "high": 3880,
+          "low": 3580
+        },
+        {
+          "name": "玉米",
+          "price": "2280",
+          "chg": 0.4,
+          "week": 0.8,
+          "month": 1.5,
+          "ytd": 2.8,
+          "high": 2300,
+          "low": 2150
+        },
+        {
+          "name": "小麦",
+          "price": "2550",
+          "chg": 0.5,
+          "week": 1,
+          "month": 1.8,
+          "ytd": 3.4,
+          "high": 2580,
+          "low": 2400
+        },
+        {
+          "name": "白糖",
+          "price": "6120",
+          "chg": 0.7,
+          "week": 1.4,
+          "month": 2.4,
+          "ytd": 5,
+          "high": 6160,
+          "low": 5780
+        }
+      ]
+    },
+    "agriculture": {
+      "series": [
+        {
+          "name": "大豆",
+          "color": "#d97706",
+          "values": [
+            3850,
+            3865,
+            3840,
+            3880,
+            3905,
+            3890,
+            3920,
+            3945,
+            3930,
+            3960
+          ]
+        },
+        {
+          "name": "玉米",
+          "color": "#2563eb",
+          "values": [
+            2280,
+            2290,
+            2275,
+            2300,
+            2315,
+            2308,
+            2325,
+            2340,
+            2330,
+            2350
+          ]
+        },
+        {
+          "name": "小麦",
+          "color": "#0d9f6e",
+          "values": [
+            2550,
+            2560,
+            2545,
+            2570,
+            2585,
+            2578,
+            2595,
+            2610,
+            2600,
+            2620
+          ]
+        },
+        {
+          "name": "白糖",
+          "color": "#7c3aed",
+          "values": [
+            6120,
+            6140,
+            6110,
+            6160,
+            6190,
+            6175,
+            6210,
+            6240,
+            6220,
+            6260
+          ]
+        }
+      ],
+      "stats": [
+        {
+          "name": "大豆",
+          "price": "3960",
+          "chg": 0.6,
+          "week": 1.2,
+          "month": 2.4,
+          "ytd": 4.2,
+          "high": 3980,
+          "low": 3680
+        },
+        {
+          "name": "玉米",
+          "price": "2350",
+          "chg": 0.5,
+          "week": 1,
+          "month": 1.8,
+          "ytd": 3,
+          "high": 2360,
+          "low": 2210
+        },
+        {
+          "name": "小麦",
+          "price": "2620",
+          "chg": 0.4,
+          "week": 0.9,
+          "month": 1.6,
+          "ytd": 2.9,
+          "high": 2640,
+          "low": 2480
+        },
+        {
+          "name": "白糖",
+          "price": "6260",
+          "chg": 0.7,
+          "week": 1.3,
+          "month": 2.5,
+          "ytd": 5.2,
+          "high": 6280,
+          "low": 5900
+        }
+      ]
+    },
+    "indexFutures": {
+      "series": [
+        {
+          "name": "沪深300",
+          "color": "#0d9f6e",
+          "values": [
+            3520,
+            3550,
+            3530,
+            3580,
+            3610,
+            3590,
+            3630,
+            3670,
+            3650,
+            3700
+          ]
+        },
+        {
+          "name": "上证50",
+          "color": "#2563eb",
+          "values": [
+            2420,
+            2440,
+            2430,
+            2460,
+            2480,
+            2470,
+            2500,
+            2520,
+            2510,
+            2545
+          ]
+        },
+        {
+          "name": "中证500",
+          "color": "#7c3aed",
+          "values": [
+            5420,
+            5460,
+            5440,
+            5500,
+            5540,
+            5520,
+            5570,
+            5610,
+            5590,
+            5640
+          ]
+        },
+        {
+          "name": "标普500",
+          "color": "#dc2626",
+          "values": [
+            5580,
+            5600,
+            5590,
+            5620,
+            5650,
+            5640,
+            5670,
+            5700,
+            5690,
+            5720
+          ]
+        },
+        {
+          "name": "纳斯达克100",
+          "color": "#0891b2",
+          "values": [
+            19850,
+            20000,
+            19920,
+            20150,
+            20300,
+            20240,
+            20450,
+            20620,
+            20560,
+            20800
+          ]
+        },
+        {
+          "name": "恒生指数",
+          "color": "#f59e0b",
+          "values": [
+            17200,
+            17350,
+            17280,
+            17500,
+            17680,
+            17590,
+            17800,
+            18020,
+            17950,
+            18180
+          ]
+        }
+      ],
+      "stats": [
+        {
+          "name": "沪深300",
+          "price": "3700",
+          "chg": 1.4,
+          "week": 2.6,
+          "month": 5.2,
+          "ytd": 8.8,
+          "high": 3720,
+          "low": 3340
+        },
+        {
+          "name": "上证50",
+          "price": "2545",
+          "chg": 1.2,
+          "week": 2.2,
+          "month": 4.4,
+          "ytd": 7.4,
+          "high": 2560,
+          "low": 2310
+        },
+        {
+          "name": "中证500",
+          "price": "5640",
+          "chg": 1.5,
+          "week": 2.8,
+          "month": 5.6,
+          "ytd": 10.2,
+          "high": 5670,
+          "low": 5050
+        },
+        {
+          "name": "标普500",
+          "price": "5720",
+          "chg": 0.5,
+          "week": 1.2,
+          "month": 2.6,
+          "ytd": 11.8,
+          "high": 5730,
+          "low": 5120
+        },
+        {
+          "name": "纳斯达克100",
+          "price": "20800",
+          "chg": 0.8,
+          "week": 1.6,
+          "month": 3.4,
+          "ytd": 14.2,
+          "high": 20900,
+          "low": 17850
+        },
+        {
+          "name": "道琼斯",
+          "price": "41200",
+          "chg": 0.4,
+          "week": 1,
+          "month": 2.2,
+          "ytd": 8.6,
+          "high": 41350,
+          "low": 38100
+        },
+        {
+          "name": "恒生指数",
+          "price": "18180",
+          "chg": 1.3,
+          "week": 2.5,
+          "month": 5,
+          "ytd": 12.4,
+          "high": 18250,
+          "low": 15800
+        },
+        {
+          "name": "日经225",
+          "price": "40200",
+          "chg": 0.9,
+          "week": 1.8,
+          "month": 3.6,
+          "ytd": 9.4,
+          "high": 40400,
+          "low": 35800
+        },
+        {
+          "name": "富时100",
+          "price": "8290",
+          "chg": 0.4,
+          "week": 0.9,
+          "month": 1.8,
+          "ytd": 5.6,
+          "high": 8320,
+          "low": 7780
+        },
+        {
+          "name": "德国DAX",
+          "price": "19150",
+          "chg": 1,
+          "week": 2,
+          "month": 4.2,
+          "ytd": 13.6,
+          "high": 19250,
+          "low": 16600
+        }
+      ]
+    }
   }
 }

@@ -344,7 +344,8 @@
       institutions: renderInstitutions,
       signals: renderSignals,
       intel: renderIntel,
-      ecosystem: renderEcosystem
+      ecosystem: renderEcosystem,
+      markets: renderMarkets
     };
     document.querySelectorAll('.nav-item').forEach(function (b) {
       b.classList.toggle('active', b.getAttribute('data-view') === state.view);
@@ -362,6 +363,7 @@
     if (state.view === 'signals') afterSignals();
     if (state.view === 'intel') afterIntel();
     if (state.view === 'ecosystem') afterEcosystem();
+    if (state.view === 'markets') afterMarkets();
     bindViewEvents(root);
     localizeDom(document.body);
     window.scrollTo(0, 0);
@@ -630,6 +632,42 @@
       if (it.sub) inner += '<text x="' + (pl + bw + 8) + '" y="' + (y + 25) + '" style="font-size:10px;fill:#94a3b8">' + esc(it.sub) + '</text>';
     });
     el.innerHTML = svgWrap(inner, W, H);
+  }
+
+  function lineChart(el, labels, series) {
+    const W = 640, H = 220, pl = 46, pr = 18, pt = 16, pb = 28;
+    const iw = W - pl - pr, ih = H - pt - pb;
+    const all = series.reduce(function (a, sd) { return a.concat(sd.values); }, []);
+    const min = Math.min.apply(null, all), max = Math.max.apply(null, all);
+    const span = (max - min) || 1;
+    const lo = min - span * 0.12, hi = max + span * 0.12;
+    let inner = gridLines(iw, ih, pt, pl, 4);
+    labels.forEach(function (lb, i) {
+      const x = pl + iw * (i + 0.5) / labels.length;
+      inner += '<text x="' + x.toFixed(1) + '" y="' + (H - 8) + '" class="axis-label" text-anchor="middle" style="font-size:10px">' + esc(lb) + '</text>';
+    });
+    const points = [];
+    series.forEach(function (sd) {
+      let d = '';
+      sd.values.forEach(function (v, i) {
+        const x = pl + iw * (i + 0.5) / labels.length;
+        const y = pt + ih - ((v - lo) / (hi - lo)) * ih;
+        d += (i ? ' L' : 'M') + x.toFixed(1) + ' ' + y.toFixed(1);
+        points.push({ x: x, y: y, label: sd.name, value: v });
+      });
+      inner += '<path d="' + d + '" fill="none" stroke="' + esc(sd.color) + '" stroke-width="2" opacity=".9"/>';
+      inner += sd.values.map(function (v, i) {
+        const x = pl + iw * (i + 0.5) / labels.length;
+        const y = pt + ih - ((v - lo) / (hi - lo)) * ih;
+        return '<circle cx="' + x.toFixed(1) + '" cy="' + y.toFixed(1) + '" r="2.5" fill="' + esc(sd.color) + '"/>';
+      }).join('');
+    });
+    const legend = series.map(function (sd) { return '<span class="legend-item"><span class="legend-dot" style="background:' + esc(sd.color) + '"></span>' + esc(sd.name) + '</span>'; }).join('');
+    el.innerHTML = svgWrap(inner, W, H) + '<div class="chart-legend">' + legend + '</div>';
+    const svg = el.querySelector('svg');
+    attachChartHover(svg, points, function (p) {
+      return '<div class="tt-k">' + esc(p.label) + '</div><div class="tt-v">' + esc(p.value) + '</div>';
+    });
   }
 
   function renderSectorChart() {
@@ -1189,10 +1227,14 @@
     const cards = list.map(function (it) {
       const st = instStats(it.name);
       const focusTags = it.focus.slice(0, 3).map(function (s) { return '<span class="chip tag" style="color:' + esc(sectorColor(s)) + ';background:' + esc(sectorColor(s)) + '1a">' + esc(sectorName(s)) + '</span>'; }).join('');
-      return '<div class="card inst-card" data-inst-name="' + esc(it.name) + '"><div class="inst-top"><span class="inst-avatar" style="background:' + esc(colorHash(it.name)) + '">' + esc(initials(it.name)) + '</span><div><div class="inst-name">' + esc(it.name) + '</div><div class="inst-meta">' + esc(it.type) + ' · ' + esc(it.region) + ' · 成立' + esc(it.founded) + '年</div></div></div><div class="inst-aum"><span class="v">' + money(it.aum) + '</span><span class="u">管理规模</span></div><div class="chip-row">' + focusTags + '</div><div class="inst-foot"><span>参与交易 <span class="stat">' + st.total + '</span></span><span>近30天 <span class="stat">' + st.d30 + '</span></span><span>参与金额 <span class="stat">' + money(st.amt) + '</span></span></div></div>';
+      return '<div class="card inst-card" data-inst-name="' + esc(it.name) + '"><div class="inst-top"><span class="inst-avatar" style="background:' + esc(colorHash(it.name)) + '">' + esc(initials(it.name)) + '</span><div><div class="inst-name">' + esc(it.name) + '</div><div class="inst-meta">' + esc(it.type) + ' · ' + esc(it.region) + ' · 成立' + esc(it.founded) + '年</div></div><a class="site-link" href="' + esc(it.website) + '" target="_blank" rel="noopener">' + icon('external-link') + '<span>官网</span></a></div><div class="inst-aum"><span class="v">' + money(it.aum) + '</span><span class="u">管理规模</span></div><div class="chip-row">' + focusTags + '</div><div class="inst-foot"><span>参与交易 <span class="stat">' + st.total + '</span></span><span>近30天 <span class="stat">' + st.d30 + '</span></span><span>参与金额 <span class="stat">' + money(st.amt) + '</span></span></div></div>';
     }).join('');
     const grid = '<div class="inst-grid">' + (cards || '<div class="empty-state" style="grid-column:1/-1">' + icon('search') + '<div>没有匹配的机构</div></div>') + '</div>';
-    return head + toolbar + '<div style="height:14px"></div>' + grid;
+    const compCards = D.companies.map(function (co) {
+      return '<div class="card company-card"><div class="inst-top"><span class="inst-avatar" style="background:' + esc(colorHash(co.name)) + '">' + esc(initials(co.name)) + '</span><div><div class="inst-name">' + esc(co.name) + '</div><div class="inst-meta">' + esc(sectorName(co.sector)) + ' · ' + esc(co.region) + ' · ' + esc(co.stage) + '</div></div></div><a class="site-link" href="' + esc(co.website) + '" target="_blank" rel="noopener">' + icon('external-link') + '<span>官网</span></a><div class="inst-foot"><span>' + esc(co.desc) + '</span></div></div>';
+    }).join('');
+    const compSection = '<div style="height:22px"></div><div class="card"><div class="card-head"><div class="card-title">' + icon('building') + '公司库</div><div class="card-meta">' + D.companies.length + ' 家公司</div></div></div><div class="company-grid">' + compCards + '</div>';
+    return head + toolbar + '<div style="height:14px"></div>' + grid + compSection;
   }
 
   function afterInstitutions() {
@@ -1425,6 +1467,48 @@
     donutChart($('eco-outbound'), f.outboundRegions.map(function (x) { return { label: x[0], value: x[1], color: x[2] }; }), '42%');
   }
 
+  function marketTable(stats) {
+    const rows = stats.map(function (st) {
+      const cls = st.chg >= 0 ? 'trend-up' : 'trend-down';
+      return '<tr><td>' + esc(st.name) + '</td><td>' + esc(st.price) + '</td><td class="' + cls + '">' + (st.chg >= 0 ? '+' : '') + st.chg + '%</td><td class="' + cls + '">' + (st.week >= 0 ? '+' : '') + st.week + '%</td><td class="' + cls + '">' + (st.month >= 0 ? '+' : '') + st.month + '%</td><td class="' + cls + '">' + (st.ytd >= 0 ? '+' : '') + st.ytd + '%</td><td>' + esc(st.high) + '</td><td>' + esc(st.low) + '</td></tr>';
+    }).join('');
+    return '<div class="table-wrap market-table-wrap"><table class="tbl market-table"><thead><tr><th>品种</th><th>最新价</th><th>日涨跌</th><th>周涨跌</th><th>月涨跌</th><th>年初至今</th><th>区间高</th><th>区间低</th></tr></thead><tbody>' + rows + '</tbody></table></div>';
+  }
+
+  function marketCard(title, iconName, meta, chartId, stats) {
+    return '<div class="card chart-card"><div class="card-head"><div class="card-title">' + icon(iconName) + title + '</div><div class="card-meta">' + meta + '</div></div><div class="card-body"><div class="chart-box chart-lg" id="' + chartId + '"></div>' + marketTable(stats) + '</div></div>';
+  }
+
+  function renderMarkets() {
+    const m = D.markets;
+    const quotes = m.quotes.map(function (q) {
+      const cls = q.up ? 'trend-up' : 'trend-down';
+      return '<div class="card market-quote"><div class="mq-name">' + esc(q.name) + '</div><div class="mq-value">' + esc(q.value) + '</div><div class="' + cls + '">' + (q.up ? '+' : '') + q.chg + '%</div></div>';
+    }).join('');
+    const sentiment = m.sentiment.map(function (s) {
+      const cls = s.chg >= 0 ? 'trend-up' : 'trend-down';
+      return '<div class="card sentiment-card"><div class="mq-name">' + esc(s.name) + ' <span class="mq-note">' + esc(s.note) + '</span></div><div class="mq-value">' + esc(s.value) + '</div><div class="' + cls + '">' + (s.chg >= 0 ? '+' : '') + s.chg + '%</div></div>';
+    }).join('');
+    const head = '<section class="page-head"><div><h1>全球市场脉搏</h1><p class="page-sub">外汇 · 贵金属 · 能源 · 有色 · 农产品 · 股指期货</p></div><div class="head-actions"><span class="engine-pill">' + icon('globe') + esc(D.meta.asOf) + '</span></div></section>';
+    const fxCard = marketCard('外汇走势', 'banknote', '主要货币对', 'market-fx', m.fx.stats);
+    const metalCard = marketCard('贵金属行情', 'activity', '黄金 · 白银 · 铂钯', 'market-metals', m.metals.stats);
+    const energyCard = marketCard('能源价格', 'flame', '原油 · 天然气 · 汽油', 'market-energy', m.energy.stats);
+    const baseCard = marketCard('有色金属', 'layers', '铜 · 铝 · 锌 · 镍', 'market-commodities', m.commodities.stats);
+    const agriCard = marketCard('农产品', 'pulse', '大豆 · 玉米 · 小麦 · 白糖', 'market-agri', m.agriculture.stats);
+    const indexCard = marketCard('股指期货走势', 'trending-up', '沪深300 · 标普500 · 恒生指数', 'market-index', m.indexFutures.stats);
+    return head + '<div class="sentiment-grid">' + sentiment + '</div><div class="market-quotes">' + quotes + '</div>' + '<div class="panel-grid two">' + fxCard + metalCard + '</div>' + '<div class="panel-grid two">' + energyCard + baseCard + '</div>' + '<div class="panel-grid two">' + agriCard + indexCard + '</div>';
+  }
+
+  function afterMarkets() {
+    const m = D.markets;
+    lineChart($('market-fx'), m.labels, m.fx.series);
+    lineChart($('market-metals'), m.labels, m.metals.series);
+    lineChart($('market-energy'), m.labels, m.energy.series);
+    lineChart($('market-commodities'), m.labels, m.commodities.series);
+    lineChart($('market-agri'), m.labels, m.agriculture.series);
+    lineChart($('market-index'), m.labels, m.indexFutures.series);
+  }
+
   function renderIntel() {
     const mode = state.llmOn && state.llmKey ? 'DeepSeek 增强' : '本地分析引擎';
     const head = '<section class="page-head"><div><h1>AI研判</h1><p class="page-sub">自动生成的投资环境解读与机会扫描</p></div><div class="head-actions intel-toolbar"><span class="engine-pill">' + icon('sparkles') + esc(mode) + '</span><button class="btn accent" id="intel-gen">' + icon('zap') + '重新生成</button><button class="btn ghost" id="intel-copy">' + icon('copy') + '复制摘要</button><button class="btn ghost" id="intel-print">' + icon('print') + '导出PDF</button><button class="btn ghost" id="intel-settings">' + icon('settings') + '引擎设置</button></div></section>';
@@ -1524,7 +1608,7 @@
     }).join('');
     const tags = co.tags.map(function (t) { return '<span class="chip tag">' + esc(t) + '</span>'; }).join('');
     const chips = Array.from(insts).slice(0, 8).map(function (n) { return '<span class="chip tag blue" data-inst-name="' + esc(n) + '">' + esc(n) + '</span>'; }).join('');
-    openDrawer('<div class="drawer-head"><span class="cell-avatar" style="width:44px;height:44px;font-size:15px;border-radius:12px;background:' + esc(sectorColor(co.sector)) + '">' + esc(initials(name)) + '</span><div class="ht"><h3>' + esc(name) + '</h3><div class="sub">' + esc(sectorName(co.sector)) + ' · ' + esc(co.region) + ' · 成立于' + co.founded + '</div></div><button class="icon-btn" data-close-drawer>' + icon('x') + '</button></div><div class="drawer-body">' +
+    openDrawer('<div class="drawer-head"><span class="cell-avatar" style="width:44px;height:44px;font-size:15px;border-radius:12px;background:' + esc(sectorColor(co.sector)) + '">' + esc(initials(name)) + '</span><div class="ht"><h3>' + esc(name) + '</h3><div class="sub">' + esc(sectorName(co.sector)) + ' · ' + esc(co.region) + ' · 成立于' + co.founded + '</div><a class="site-link" href="' + esc(co.website) + '" target="_blank" rel="noopener">' + icon('external-link') + '<span>官网</span></a></div><button class="icon-btn" data-close-drawer>' + icon('x') + '</button></div><div class="drawer-body">' +
       '<div class="drawer-section"><div class="desc-text">' + esc(co.desc) + '</div><div class="tags-row" style="margin-top:10px">' + tags + '</div></div>' +
       '<div class="drawer-section"><div class="detail-kpis"><div class="detail-kpi"><div class="k">累计融资</div><div class="v">' + money(total) + '</div></div><div class="detail-kpi"><div class="k">最新估值</div><div class="v">' + money(co.estValuation) + '</div></div><div class="detail-kpi"><div class="k">最新轮次</div><div class="v">' + esc(co.stage) + '</div></div><div class="detail-kpi"><div class="k">团队规模</div><div class="v">' + co.employees.toLocaleString() + ' <span class="u">人</span></div></div></div></div>' +
       '<div class="drawer-section"><h4>' + icon('banknote') + '融资历史 · ' + list.length + ' 笔</h4>' + (dealRows || '<div style="color:#94a3b8">暂无记录</div>') + '</div>' +
@@ -1541,7 +1625,7 @@
       return '<div class="company-row" data-deal-id="' + d.id + '"><div><div class="nm">' + esc(d.company) + ' · ' + esc(d.round) + '</div><div class="sub">' + fmtDate(d.date) + ' · ' + esc(d.sectorName) + ' · ' + esc(d.region) + '</div></div><div class="amt">' + money(d.amount) + '</div></div>';
     }).join('');
     const focus = it.focus.map(function (s) { return '<span class="chip tag" style="color:' + esc(sectorColor(s)) + ';background:' + esc(sectorColor(s)) + '1a">' + esc(sectorName(s)) + '</span>'; }).join('');
-    openDrawer('<div class="drawer-head"><span class="cell-avatar" style="width:44px;height:44px;font-size:15px;border-radius:12px;background:' + esc(colorHash(name)) + '">' + esc(initials(name)) + '</span><div class="ht"><h3>' + esc(name) + '</h3><div class="sub">' + esc(it.type) + ' · ' + esc(it.region) + ' · 成立' + esc(it.founded) + '年</div></div><button class="icon-btn" data-close-drawer>' + icon('x') + '</button></div><div class="drawer-body">' +
+    openDrawer('<div class="drawer-head"><span class="cell-avatar" style="width:44px;height:44px;font-size:15px;border-radius:12px;background:' + esc(colorHash(name)) + '">' + esc(initials(name)) + '</span><div class="ht"><h3>' + esc(name) + '</h3><div class="sub">' + esc(it.type) + ' · ' + esc(it.region) + ' · 成立' + esc(it.founded) + '年</div><a class="site-link" href="' + esc(it.website) + '" target="_blank" rel="noopener">' + icon('external-link') + '<span>官网</span></a></div><button class="icon-btn" data-close-drawer>' + icon('x') + '</button></div><div class="drawer-body">' +
       '<div class="drawer-section"><div class="desc-text">' + esc(it.desc) + '</div><div class="tags-row" style="margin-top:10px">' + focus + '</div></div>' +
       '<div class="drawer-section"><div class="detail-kpis"><div class="detail-kpi"><div class="k">管理规模</div><div class="v">' + money(it.aum) + '</div></div><div class="detail-kpi"><div class="k">参与交易</div><div class="v">' + st.total + '</div></div><div class="detail-kpi"><div class="k">参与金额</div><div class="v">' + money(st.amt) + '</div></div><div class="detail-kpi"><div class="k">近30天出手</div><div class="v">' + st.d30 + '</div></div></div></div>' +
       '<div class="drawer-section"><h4>' + icon('banknote') + '近期交易</h4>' + (dealRows || '<div style="color:#94a3b8">暂无记录</div>') + '</div>' +
