@@ -3786,6 +3786,178 @@
       "note": "工商业储能订单与海外市场扩张",
       "cross": true,
       "usd": false
+    },
+    {
+      "id": 953,
+      "company": "co-zhipu",
+      "companyName": "智谱AI",
+      "sector": "ai",
+      "region": "北京",
+      "date": "2026-08-20",
+      "round": "B+轮",
+      "amount": 32,
+      "lead": "中金资本",
+      "co": [
+        "红杉中国",
+        "高瓴创投"
+      ],
+      "note": "大模型政企订单持续增长，推理成本进一步优化",
+      "cross": false,
+      "usd": false
+    },
+    {
+      "id": 954,
+      "company": "co-moonshot",
+      "companyName": "月之暗面",
+      "sector": "ai",
+      "region": "北京",
+      "date": "2026-08-20",
+      "round": "B轮",
+      "amount": 22,
+      "lead": "腾讯投资",
+      "co": [
+        "高瓴创投"
+      ],
+      "note": "Kimi月活与订阅持续增长，多模态能力升级",
+      "cross": false,
+      "usd": false
+    },
+    {
+      "id": 955,
+      "company": "co-unitree",
+      "companyName": "宇树科技",
+      "sector": "robot",
+      "region": "杭州",
+      "date": "2026-08-20",
+      "round": "C轮",
+      "amount": 32,
+      "lead": "源码资本",
+      "co": [
+        "红杉中国"
+      ],
+      "note": "新一代人形机器人量产，海外渠道扩张",
+      "cross": true,
+      "usd": false
+    },
+    {
+      "id": 956,
+      "company": "co-biren",
+      "companyName": "壁仞科技",
+      "sector": "chip",
+      "region": "上海",
+      "date": "2026-08-20",
+      "round": "D轮",
+      "amount": 48,
+      "lead": "上海科创基金",
+      "co": [
+        "国投创合"
+      ],
+      "note": "新一代国产GPU流片成功，算力中心部署提速",
+      "cross": false,
+      "usd": false
+    },
+    {
+      "id": 957,
+      "company": "co-tailan",
+      "companyName": "太蓝新能源",
+      "sector": "energy",
+      "region": "重庆",
+      "date": "2026-08-20",
+      "round": "C轮",
+      "amount": 30,
+      "lead": "中金资本",
+      "co": [
+        "淡马锡"
+      ],
+      "note": "全固态电池装车验证推进，产能规划落地",
+      "cross": true,
+      "usd": false
+    },
+    {
+      "id": 958,
+      "company": "co-bawang",
+      "companyName": "霸王茶姬",
+      "sector": "consumer",
+      "region": "成都",
+      "date": "2026-08-20",
+      "round": "Pre-IPO",
+      "amount": 60,
+      "lead": "中金资本",
+      "co": [
+        "高瓴创投",
+        "老虎环球"
+      ],
+      "note": "港股上市进程推进，海外门店与供应链持续扩张",
+      "cross": false,
+      "usd": false
+    },
+    {
+      "id": 959,
+      "company": "co-sensors",
+      "companyName": "神策数据",
+      "sector": "saas",
+      "region": "北京",
+      "date": "2026-08-20",
+      "round": "D+轮",
+      "amount": 8,
+      "lead": "高成资本",
+      "co": [
+        "红杉中国"
+      ],
+      "note": "AI分析产品进入头部企业采购，续约率提升",
+      "cross": false,
+      "usd": false
+    },
+    {
+      "id": 960,
+      "company": "co-heytea",
+      "companyName": "喜茶",
+      "sector": "consumer",
+      "region": "深圳",
+      "date": "2026-08-20",
+      "round": "战略轮",
+      "amount": 30,
+      "lead": "高瓴创投",
+      "co": [
+        "老虎环球"
+      ],
+      "note": "全球门店扩张，供应链数字化升级",
+      "cross": true,
+      "usd": false
+    },
+    {
+      "id": 961,
+      "company": "co-svolt",
+      "companyName": "蜂巢能源",
+      "sector": "energy",
+      "region": "常州",
+      "date": "2026-08-20",
+      "round": "Pre-IPO",
+      "amount": 40,
+      "lead": "中金资本",
+      "co": [
+        "国投创合"
+      ],
+      "note": "动力电池海外订单增长，产能扩建提速",
+      "cross": true,
+      "usd": false
+    },
+    {
+      "id": 962,
+      "company": "co-galaxy",
+      "companyName": "银河通用",
+      "sector": "robot",
+      "region": "北京",
+      "date": "2026-08-20",
+      "round": "B+轮",
+      "amount": 24,
+      "lead": "深创投",
+      "co": [
+        "源码资本"
+      ],
+      "note": "具身智能机器人进入仓储与制造场景",
+      "cross": false,
+      "usd": false
     }
   ],
   "flows": {
@@ -3836,7 +4008,7 @@
       ],
       [
         "2026-08",
-        1040
+        1120
       ]
     ],
     "quarterly": {
@@ -3852,14 +4024,14 @@
         560,
         720,
         650,
-        540
+        580
       ],
       "outbound": [
         310,
         380,
         460,
         520,
-        360
+        390
       ]
     },
     "outboundRegions": [
@@ -3902,7 +4074,7 @@
         420,
         560,
         610,
-        460
+        500
       ]
     },
     "exits": {
@@ -3918,14 +4090,14 @@
         31,
         38,
         35,
-        28
+        32
       ],
       "ma": [
         9,
         12,
         15,
         13,
-        13
+        15
       ]
     },
     "valuationTrend": [
@@ -4281,6 +4453,55 @@
         "淡马锡"
       ],
       "ts": "2026-08-19 08:30"
+    },
+    {
+      "id": "sig-23",
+      "level": "high",
+      "cat": "赛道动量",
+      "title": "AI大模型融资热度延续，头部项目近30天吸金超240亿元",
+      "evidence": "智谱AI、月之暗面、MiniMax等先后交割，单笔最高35亿元",
+      "refs": [
+        "智谱AI",
+        "月之暗面"
+      ],
+      "ts": "2026-08-20 09:20"
+    },
+    {
+      "id": "sig-24",
+      "level": "high",
+      "cat": "机构动态",
+      "title": "高瓴创投近一周连投AI、机器人、消费与新能源",
+      "evidence": "智谱AI、喜茶、太蓝新能源等交易完成",
+      "refs": [
+        "高瓴创投",
+        "智谱AI",
+        "喜茶"
+      ],
+      "ts": "2026-08-20 09:05"
+    },
+    {
+      "id": "sig-25",
+      "level": "medium",
+      "cat": "赛道动量",
+      "title": "固态电池与动力电池融资持续升温",
+      "evidence": "太蓝新能源、蜂巢能源完成新一轮，装车验证推进",
+      "refs": [
+        "太蓝新能源",
+        "蜂巢能源"
+      ],
+      "ts": "2026-08-20 08:50"
+    },
+    {
+      "id": "sig-26",
+      "level": "medium",
+      "cat": "资金流向",
+      "title": "外资持续参与硬科技与消费大额交易",
+      "evidence": "老虎环球、淡马锡参与喜茶与固态电池项目",
+      "refs": [
+        "老虎环球",
+        "淡马锡"
+      ],
+      "ts": "2026-08-20 08:30"
     }
   ],
   "rules": [
@@ -4343,7 +4564,7 @@
   ],
   "meta": {
     "name": "资本流径",
-    "asOf": "2026-08-19 09:30",
+    "asOf": "2026-08-20 09:30",
     "rangeOptions": [
       {
         "v": 30,
