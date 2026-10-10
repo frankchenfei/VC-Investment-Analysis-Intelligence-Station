@@ -717,3 +717,37 @@ table.tbl { width: 100%; border-collapse: collapse; font-size: 13px; }
 .market-table th, .market-table td { padding: 7px 10px; white-space: nowrap; }
 .market-table th { background: var(--line-2); }
 
+/* Capital flow kinetic effects */
+.flow-canvas-card { position: relative; overflow: hidden; }
+.flow-canvas-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-image: linear-gradient(rgba(148, 163, 184, .07) 1px, transparent 1px), linear-gradient(90deg, rgba(148, 163, 184, .07) 1px, transparent 1px);
+  background-size: 28px 28px;
+  pointer-events: none;
+}
+.flow-canvas-card > .card-body { position: relative; z-index: 1; }
+.flow-live { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 600; color: var(--accent); background: var(--accent-soft); border: 1px solid rgba(13, 159, 110, .25); padding: 6px 10px; border-radius: 999px; }
+.live-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 0 rgba(13, 159, 110, .65); animation: livePulse 1.8s ease-out infinite; }
+.flow-hint { display: flex; align-items: center; gap: 6px; justify-content: flex-end; font-size: 11.5px; color: var(--faint); padding: 6px 2px 0; }
+.flow-hint svg { width: 13px; height: 13px; }
+.flow-edge { stroke-dasharray: 10 14; animation: flowDash 1.9s linear infinite; transition: opacity .2s ease, stroke-width .2s ease; }
+.flow-edge.hl { filter: url(#flowGlow); }
+.flow-edge-pulse { stroke-dasharray: 2 22; animation: flowDash 1.15s linear infinite; pointer-events: none; filter: url(#flowGlow); }
+.flow-particle { filter: drop-shadow(0 0 5px rgba(255, 255, 255, .9)); pointer-events: none; }
+.flow-node { transition: opacity .2s ease; }
+.flow-node circle { transition: filter .18s ease, transform .18s ease; }
+.flow-node:hover circle { filter: url(#nodeGlow); }
+.flow-node-halo { transform-box: fill-box; transform-origin: center; animation: nodePulse 2.8s ease-out infinite; pointer-events: none; }
+.flow-node.dim .flow-node-halo { animation: none; opacity: .08; }
+@keyframes flowDash { to { stroke-dashoffset: -48; } }
+@keyframes nodePulse { 0% { transform: scale(.82); opacity: .55; } 70% { transform: scale(1.42); opacity: 0; } 100% { transform: scale(1.42); opacity: 0; } }
+@keyframes livePulse { 0% { box-shadow: 0 0 0 0 rgba(13, 159, 110, .55); } 80% { box-shadow: 0 0 0 9px rgba(13, 159, 110, 0); } 100% { box-shadow: 0 0 0 0 rgba(13, 159, 110, 0); } }
+@media (prefers-reduced-motion: reduce) {
+  .flow-edge, .flow-edge-pulse, .flow-node-halo, .live-dot { animation: none !important; }
+}
+@media (max-width: 1180px) {
+  .flow-live { display: none; }
+}

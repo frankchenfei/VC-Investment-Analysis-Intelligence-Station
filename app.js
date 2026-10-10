@@ -780,13 +780,14 @@
     const amtBtns = [3, 5, 10, 20].map(function (v) {
       return '<button class="' + (state.flowFilter.min === v ? 'active' : '') + '" data-min="' + v + '">≥' + v + '亿</button>';
     }).join('');
-    return '<section class="page-head"><div><h1>资金流向图谱</h1><p class="page-sub">机构 · 公司 · 赛道 之间的资金网络</p></div><div class="head-actions"><button class="btn ghost" id="flow-reset">' + icon('maximize-2') + '重置视图</button></div></section>' +
+    return '<section class="page-head"><div><h1>资金流向图谱</h1><p class="page-sub">机构 · 公司 · 赛道 之间的资金网络</p></div><div class="head-actions"><span class="flow-live"><span class="live-dot"></span>资金流动监测</span><button class="btn ghost" id="flow-zoom-out" aria-label="缩小">' + icon('zoom-out') + '</button><button class="btn ghost" id="flow-zoom-in" aria-label="放大">' + icon('zoom-in') + '</button><button class="btn ghost" id="flow-reset">' + icon('maximize-2') + '重置视图</button></div></section>' +
       '<div class="card flow-canvas-card"><div class="card-body">' +
       '<div class="toolbar"><div class="chip-row flow-sec-row">' + secChips + '</div></div>' +
       '<div class="toolbar"><div class="range-pills flow-amt">' + amtBtns + '</div>' +
       '<label class="chip" style="cursor:pointer"><input type="checkbox" id="flow-cross" ' + (state.flowFilter.cross ? 'checked' : '') + ' style="width:14px;height:14px;margin:0">仅看跨境资金</label>' +
       '<div class="search-box flow-node-search"><span>' + icon('search') + '</span><input id="flow-q" placeholder="聚焦节点" value="' + esc(state.flowFilter.q) + '"></div></div>' +
       '<div class="flow-stage" id="flow-stage"></div>' +
+      '<div class="flow-hint">' + icon('info') + '滚轮缩放 · 拖拽节点 · 点击查看关联交易</div>' +
       '<div class="flow-stats" id="flow-stats"></div>' +
       '</div></div>' +
       '<div class="flow-layout"><div class="card"><div class="card-body"><div class="sec-title">' + icon('info') + '节点说明</div>' +
@@ -1118,6 +1119,7 @@
     }, 180));
     $('flow-reset').addEventListener('click', function () {
       state.flowFilter = { sectors: new Set(), min: 3, cross: false, q: '' };
+      stage.__scale = 1;
       afterFlow();
     });
     localizeDom(document.body);
@@ -1816,32 +1818,67 @@
     const maxW = Math.max.apply(null, model.edges.map(function (e) { return e.weight; })) || 1;
     const nodeByKey = {};
     model.nodes.forEach(function (n) { nodeByKey[n.key] = n; });
-    let inner = '';
+
+    const defs = '<defs>' +
+      '<linearGradient id="flowGradInst" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#0d9f6e"/><stop offset="100%" stop-color="#7dd3fc"/></linearGradient>' +
+      '<linearGradient id="flowGradSector" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#f59e0b"/><stop offset="100%" stop-color="#6366f1"/></linearGradient>' +
+      '<linearGradient id="flowGradCo" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#7dd3fc"/><stop offset="100%" stop-color="#2563eb"/></linearGradient>' +
+      '<filter id="flowGlow" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="3.2" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>' +
+      '<filter id="nodeGlow" x="-80%" y="-80%" width="260%" height="260%"><feGaussianBlur stdDeviation="4.6" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>' +
+      '</defs>';
+
+    const edges = [];
     model.edges.forEach(function (e) {
       const a = nodeByKey[e.from], b = nodeByKey[e.to];
       if (!a || !b) return;
-      const w = Math.max(0.6, 2 + (e.weight / maxW) * 5.5);
-      const hl = selectedKey && (e.from === selectedKey || e.to === selectedKey);
-      const dim = selectedKey && !hl;
-      inner += '<line class="flow-edge' + (hl ? ' hl' : '') + (dim ? ' dim' : '') + '" x1="' + a.x + '" y1="' + a.y + '" x2="' + b.x + '" y2="' + b.y + '" stroke="' + (e.kind === 'sector' ? '#f59e0b' : e.kind === 'co' ? '#7dd3fc' : '#0d9f6e') + '" stroke-width="' + w.toFixed(1) + '" opacity="' + (e.kind === 'sector' ? '0.16' : '0.32') + '" data-edge="' + esc(e.from) + '->' + esc(e.to) + '"/>';
+      const hl = !!(selectedKey && (e.from === selectedKey || e.to === selectedKey));
+      edges.push({
+        e: e, a: a, b: b,
+        w: Math.max(0.6, 2 + (e.weight / maxW) * 5.5),
+        hl: hl,
+        dim: !!(selectedKey && !hl),
+        grad: e.kind === 'sector' ? 'flowGradSector' : e.kind === 'co' ? 'flowGradCo' : 'flowGradInst',
+        color: e.kind === 'sector' ? '#f59e0b' : e.kind === 'co' ? '#7dd3fc' : '#0d9f6e'
+      });
     });
+    const topEdges = edges.slice().sort(function (x, y) { return y.e.weight - x.e.weight; }).slice(0, 14);
+    const particleSet = {};
+    topEdges.forEach(function (x) { particleSet[x.e.from + '->' + x.e.to] = true; });
+
+    let inner = '';
+    edges.forEach(function (item) {
+      const op = item.hl ? 0.78 : (item.e.kind === 'sector' ? 0.16 : 0.32);
+      inner += '<line class="flow-edge' + (item.hl ? ' hl' : '') + (item.dim ? ' dim' : '') + '" x1="' + item.a.x + '" y1="' + item.a.y + '" x2="' + item.b.x + '" y2="' + item.b.y + '" stroke="url(#' + item.grad + ')" stroke-linecap="round" stroke-width="' + item.w.toFixed(1) + '" opacity="' + op + '" data-edge="' + esc(item.e.from) + '->' + esc(item.e.to) + '"/>';
+      if (item.hl || particleSet[item.e.from + '->' + item.e.to]) {
+        inner += '<line class="flow-edge-pulse" x1="' + item.a.x + '" y1="' + item.a.y + '" x2="' + item.b.x + '" y2="' + item.b.y + '" stroke="' + item.color + '" stroke-linecap="round" stroke-width="' + Math.max(1, item.w * 0.5).toFixed(1) + '" opacity="' + (item.hl ? '.9' : '.5') + '" data-edge="' + esc(item.e.from) + '->' + esc(item.e.to) + '"/>';
+      }
+    });
+    topEdges.forEach(function (item, i) {
+      const dur = (2.4 + (i % 5) * 0.35).toFixed(2);
+      const begin = (i * 0.22).toFixed(2);
+      const r = (2.1 + (i % 3) * 0.5).toFixed(1);
+      inner += '<circle class="flow-particle" r="' + r + '" fill="' + item.color + '"><animateMotion dur="' + dur + 's" begin="' + begin + 's" repeatCount="indefinite" path="M' + item.a.x.toFixed(1) + ' ' + item.a.y.toFixed(1) + ' L' + item.b.x.toFixed(1) + ' ' + item.b.y.toFixed(1) + '"/></circle>';
+    });
+
     model.nodes.forEach(function (n) {
       const matchQ = !q || n.label.toLowerCase().indexOf(q) >= 0;
       const isSel = selectedKey === n.key;
       const connected = selectedKey && model.edges.some(function (e) { return e.from === selectedKey && e.to === n.key || e.to === selectedKey && e.from === n.key; });
       const dim = (selectedKey && !isSel && !connected) || (q && !matchQ);
       const cls = 'flow-node' + (dim ? ' dim' : '');
+      const glow = (n.type === 'sector' || isSel) ? ' filter="url(#nodeGlow)"' : '';
+      const halo = '<circle class="flow-node-halo" r="' + (n.r + 6) + '" fill="none" stroke="' + esc(n.color) + '" stroke-width="1.4"/>';
       if (n.type === 'sector') {
-        inner += '<g class="' + cls + '" data-node="' + esc(n.key) + '" transform="translate(' + n.x + ',' + n.y + ')"><circle r="' + n.r + '" fill="' + esc(n.color) + '" stroke="#fff" stroke-width="2.5"/><text class="flow-node-label hub" text-anchor="middle" dy="4">' + esc(n.label.slice(0, 4)) + '</text></g>';
+        inner += '<g class="' + cls + '" data-node="' + esc(n.key) + '" transform="translate(' + n.x + ',' + n.y + ')">' + halo + '<circle r="' + n.r + '" fill="' + esc(n.color) + '" stroke="#fff" stroke-width="2.5"' + glow + '/><circle r="' + (n.r * 0.42).toFixed(1) + '" fill="rgba(255,255,255,.22)"/><text class="flow-node-label hub" text-anchor="middle" dy="4">' + esc(n.label.slice(0, 4)) + '</text></g>';
       } else if (n.type === 'institution') {
-        inner += '<g class="' + cls + '" data-node="' + esc(n.key) + '" transform="translate(' + n.x + ',' + n.y + ')"><circle r="' + n.r + '" fill="' + esc(n.color) + '" opacity=".92" stroke="#fff" stroke-width="2"/><text class="flow-node-label" text-anchor="middle" dy="' + (n.r + 14) + '">' + esc(n.label) + '</text></g>';
+        inner += '<g class="' + cls + '" data-node="' + esc(n.key) + '" transform="translate(' + n.x + ',' + n.y + ')">' + halo + '<circle r="' + n.r + '" fill="' + esc(n.color) + '" opacity=".92" stroke="#fff" stroke-width="2"' + glow + '/><text class="flow-node-label" text-anchor="middle" dy="' + (n.r + 14) + '">' + esc(n.label) + '</text></g>';
       } else {
-        inner += '<g class="' + cls + '" data-node="' + esc(n.key) + '" transform="translate(' + n.x + ',' + n.y + ')"><circle r="' + n.r + '" fill="' + esc(n.color) + '" opacity=".95" stroke="#fff" stroke-width="2"/><text class="flow-node-label" text-anchor="middle" dy="' + (n.r + 13) + '">' + esc(n.label.slice(0, 7)) + '</text></g>';
+        inner += '<g class="' + cls + '" data-node="' + esc(n.key) + '" transform="translate(' + n.x + ',' + n.y + ')">' + halo + '<circle r="' + n.r + '" fill="' + esc(n.color) + '" opacity=".95" stroke="#fff" stroke-width="2"' + glow + '/><text class="flow-node-label" text-anchor="middle" dy="' + (n.r + 13) + '">' + esc(n.label.slice(0, 7)) + '</text></g>';
       }
     });
     const scale = stage.__scale || 1;
-    inner = '<g id="flow-content" transform="scale(' + scale + ')">' + inner + '</g>';
-    stage.innerHTML = svgWrap(inner, W, H);
+    const content = '<g id="flow-content" transform="scale(' + scale + ')">' + inner + '</g>';
+    stage.innerHTML = svgWrap(defs + content, W, H);
     localizeDom(stage);
     const svg = stage.querySelector('svg');
     svg.style.width = '100%';
@@ -1852,6 +1889,9 @@
   function bindFlowInteractions() {
     const stage = $('flow-stage');
     if (!stage) return;
+    const zoomIn = $('flow-zoom-in'), zoomOut = $('flow-zoom-out');
+    if (zoomIn) zoomIn.addEventListener('click', function () { stage.__scale = Math.min(2.2, (stage.__scale || 1) * 1.15); renderFlowSvg(stage.__model, stage.__selectedKey || null); });
+    if (zoomOut) zoomOut.addEventListener('click', function () { stage.__scale = Math.max(0.55, (stage.__scale || 1) * 0.87); renderFlowSvg(stage.__model, stage.__selectedKey || null); });
     let drag = null;
     let raf = null;
     stage.addEventListener('wheel', function (e) {

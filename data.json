@@ -5684,6 +5684,110 @@
       "note": "ADC管线推进至临床III期",
       "cross": true,
       "usd": false
+    },
+    {
+      "id": 1057,
+      "company": "co-zhipu",
+      "companyName": "智谱AI",
+      "sector": "ai",
+      "region": "北京",
+      "date": "2026-10-10",
+      "round": "B+轮",
+      "amount": 48,
+      "lead": "中金资本",
+      "co": [
+        "红杉中国",
+        "高瓴创投"
+      ],
+      "note": "大模型商业化提速，政务与金融场景规模化落地",
+      "cross": false,
+      "usd": false
+    },
+    {
+      "id": 1058,
+      "company": "co-biren",
+      "companyName": "壁仞科技",
+      "sector": "chip",
+      "region": "上海",
+      "date": "2026-10-10",
+      "round": "D轮",
+      "amount": 64,
+      "lead": "上海科创基金",
+      "co": [
+        "国投创合"
+      ],
+      "note": "国产GPU进入互联网大厂规模采购",
+      "cross": false,
+      "usd": false
+    },
+    {
+      "id": 1059,
+      "company": "co-bawang",
+      "companyName": "霸王茶姬",
+      "sector": "consumer",
+      "region": "成都",
+      "date": "2026-10-10",
+      "round": "Pre-IPO",
+      "amount": 84,
+      "lead": "中金资本",
+      "co": [
+        "高瓴创投",
+        "老虎环球"
+      ],
+      "note": "全球化门店扩张，海外收入占比提升",
+      "cross": false,
+      "usd": false
+    },
+    {
+      "id": 1060,
+      "company": "co-moonshot",
+      "companyName": "月之暗面",
+      "sector": "ai",
+      "region": "北京",
+      "date": "2026-10-10",
+      "round": "B轮",
+      "amount": 38,
+      "lead": "腾讯投资",
+      "co": [
+        "高瓴创投"
+      ],
+      "note": "C端产品增长强劲，推理成本持续下降",
+      "cross": false,
+      "usd": false
+    },
+    {
+      "id": 1061,
+      "company": "co-unitree",
+      "companyName": "宇树科技",
+      "sector": "robot",
+      "region": "杭州",
+      "date": "2026-10-10",
+      "round": "C轮",
+      "amount": 48,
+      "lead": "源码资本",
+      "co": [
+        "红杉中国"
+      ],
+      "note": "人形机器人量产交付超千台",
+      "cross": true,
+      "usd": false
+    },
+    {
+      "id": 1062,
+      "company": "co-heytea",
+      "companyName": "喜茶",
+      "sector": "consumer",
+      "region": "深圳",
+      "date": "2026-10-10",
+      "round": "战略轮",
+      "amount": 46,
+      "lead": "高瓴创投",
+      "co": [
+        "老虎环球"
+      ],
+      "note": "茶饮门店网络扩张",
+      "cross": true,
+      "usd": false
     }
   ],
   "flows": {
@@ -5742,7 +5846,7 @@
       ],
       [
         "2026-10",
-        560
+        620
       ]
     ],
     "quarterly": {
@@ -5760,7 +5864,7 @@
         720,
         650,
         880,
-        420
+        450
       ],
       "outbound": [
         310,
@@ -5768,7 +5872,7 @@
         460,
         520,
         600,
-        300
+        320
       ]
     },
     "outboundRegions": [
@@ -5813,7 +5917,7 @@
         560,
         610,
         800,
-        380
+        420
       ]
     },
     "exits": {
@@ -5831,7 +5935,7 @@
         38,
         35,
         62,
-        18
+        22
       ],
       "ma": [
         9,
@@ -5839,7 +5943,7 @@
         15,
         13,
         30,
-        8
+        10
       ]
     },
     "valuationTrend": [
@@ -6623,6 +6727,31 @@
         "喜茶"
       ],
       "ts": "2026-10-09 08:10"
+    },
+    {
+      "id": "sig-58",
+      "level": "high",
+      "cat": "赛道动量",
+      "title": "AI大模型融资热度延续，头部项目近30天吸金超420亿元",
+      "evidence": "智谱AI、月之暗面、MiniMax等先后交割，单笔最高58亿元",
+      "refs": [
+        "智谱AI",
+        "月之暗面"
+      ],
+      "ts": "2026-10-10 09:20"
+    },
+    {
+      "id": "sig-59",
+      "level": "high",
+      "cat": "机构动态",
+      "title": "高瓴创投持续重仓AI、机器人与消费",
+      "evidence": "智谱AI、喜茶、霸王茶姬等交易完成",
+      "refs": [
+        "高瓴创投",
+        "智谱AI",
+        "喜茶"
+      ],
+      "ts": "2026-10-10 09:05"
     }
   ],
   "rules": [
@@ -6685,7 +6814,7 @@
   ],
   "meta": {
     "name": "资本流径",
-    "asOf": "2026-10-09 09:30",
+    "asOf": "2026-10-10 09:30",
     "rangeOptions": [
       {
         "v": 30,
