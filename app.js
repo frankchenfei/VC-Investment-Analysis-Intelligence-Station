@@ -297,6 +297,18 @@
     return I18N && I18N.phrase ? I18N.phrase(text, state.lang) : text;
   }
 
+  function hasVerifiedData() {
+    return !!(D.meta && D.meta.verifiedCount > 0 && deals.length > 0);
+  }
+
+  function verifiedEmptyState(title, desc) {
+    const sources = ['SEC EDGAR', 'Exchange filings', 'Company filings & prospectus', 'Licensed data vendors'];
+    return '<section class="page-head"><div><h1>' + title + '</h1><p class="page-sub">' + tl('数据源接入中') + '</p></div></section>' +
+      '<div class="card verified-empty"><div class="ve-icon">' + icon('shield') + '</div><h3>' + tl('未核验数据已清空') + '</h3><p>' + desc + '</p>' +
+      '<div class="ve-list">' + sources.map(function (x) { return '<span class="ve-item">' + icon('check') + '<span>' + x + '</span></span>'; }).join('') + '</div>' +
+      '<div class="ve-note">' + tl('每条记录必须附带来源链接并通过交叉验证后才会发布。') + '</div></div>';
+  }
+
   function toast(msg, type) {
     const root = $('toast-root');
     const el = document.createElement('div');
@@ -356,14 +368,15 @@
     frag.innerHTML = views[state.view]();
     while (frag.firstChild) root.appendChild(frag.firstChild);
     fillIcons(root);
-    if (state.view === 'overview') afterOverview();
-    if (state.view === 'flow') afterFlow();
-    if (state.view === 'deals') afterDeals();
+    const hasData = hasVerifiedData();
+    if (state.view === 'overview' && hasData) afterOverview();
+    if (state.view === 'flow' && hasData) afterFlow();
+    if (state.view === 'deals' && hasData) afterDeals();
     if (state.view === 'institutions') afterInstitutions();
-    if (state.view === 'signals') afterSignals();
-    if (state.view === 'intel') afterIntel();
-    if (state.view === 'ecosystem') afterEcosystem();
-    if (state.view === 'markets') afterMarkets();
+    if (state.view === 'signals' && hasData) afterSignals();
+    if (state.view === 'intel' && hasData) afterIntel();
+    if (state.view === 'ecosystem' && hasData) afterEcosystem();
+    if (state.view === 'markets' && D.markets && D.markets.verified) afterMarkets();
     bindViewEvents(root);
     localizeDom(document.body);
     window.scrollTo(0, 0);
@@ -411,6 +424,7 @@
   }
 
   function renderOverview() {
+    if (!hasVerifiedData()) return verifiedEmptyState('市场总览', tl('权威数据源接入后自动展示已核验的融资、机构与赛道数据。'));
     const range = state.range;
     const recent = deals.filter(function (d) { return inRange(d.date, range); });
     const d30 = deals.filter(function (d) { return inRange(d.date, 30); });
@@ -1078,6 +1092,7 @@
   }
 
   function renderFlow() {
+    if (!hasVerifiedData()) return verifiedEmptyState('资金流向图谱', tl('募集、投资与退出关系将在数据源接入并完成交叉验证后展示。'));
     return flowHtml();
   }
 
@@ -1148,6 +1163,7 @@
   }
 
   function renderDeals() {
+    if (!hasVerifiedData()) return verifiedEmptyState('融资动态', tl('暂无已核验融资记录，未核实数据不会展示。'));
     const rows = filterDeals();
     const pageSize = 15;
     const pages = Math.max(1, Math.ceil(rows.length / pageSize));
@@ -1229,14 +1245,15 @@
     const cards = list.map(function (it) {
       const st = instStats(it.name);
       const focusTags = it.focus.slice(0, 3).map(function (s) { return '<span class="chip tag" style="color:' + esc(sectorColor(s)) + ';background:' + esc(sectorColor(s)) + '1a">' + esc(sectorName(s)) + '</span>'; }).join('');
-      return '<div class="card inst-card" data-inst-name="' + esc(it.name) + '"><div class="inst-top"><span class="inst-avatar" style="background:' + esc(colorHash(it.name)) + '">' + esc(initials(it.name)) + '</span><div><div class="inst-name">' + esc(it.name) + '</div><div class="inst-meta">' + esc(it.type) + ' · ' + esc(it.region) + ' · 成立' + esc(it.founded) + '年</div></div><a class="site-link" href="' + esc(it.website) + '" target="_blank" rel="noopener">' + icon('external-link') + '<span>官网</span></a></div><div class="inst-aum"><span class="v">' + money(it.aum) + '</span><span class="u">管理规模</span></div><div class="chip-row">' + focusTags + '</div><div class="inst-foot"><span>参与交易 <span class="stat">' + st.total + '</span></span><span>近30天 <span class="stat">' + st.d30 + '</span></span><span>参与金额 <span class="stat">' + money(st.amt) + '</span></span></div></div>';
+      return '<div class="card inst-card" data-inst-name="' + esc(it.name) + '"><div class="inst-top"><span class="inst-avatar" style="background:' + esc(colorHash(it.name)) + '">' + esc(initials(it.name)) + '</span><div><div class="inst-name">' + esc(it.name) + '</div><div class="inst-meta">' + esc(it.type) + ' · ' + esc(it.region) + (hasVerifiedData() ? ' · 成立' + esc(it.founded) + '年' : '') + '</div></div><a class="site-link" href="' + esc(it.website) + '" target="_blank" rel="noopener">' + icon('external-link') + '<span>官网</span></a></div><div class="inst-aum"><span class="v">' + money(it.aum) + '</span><span class="u">管理规模</span></div><div class="chip-row">' + focusTags + '</div><div class="inst-foot"><span>参与交易 <span class="stat">' + st.total + '</span></span><span>近30天 <span class="stat">' + st.d30 + '</span></span><span>参与金额 <span class="stat">' + money(st.amt) + '</span></span></div></div>';
     }).join('');
-    const grid = '<div class="inst-grid">' + (cards || '<div class="empty-state" style="grid-column:1/-1">' + icon('search') + '<div>没有匹配的机构</div></div>') + '</div>';
+    const grid = '<div class="inst-grid' + (hasVerifiedData() ? '' : ' unverified') + '">' + (cards || '<div class="empty-state" style="grid-column:1/-1">' + icon('search') + '<div>没有匹配的机构</div></div>') + '</div>';
     const compCards = D.companies.map(function (co) {
-      return '<div class="card company-card"><div class="inst-top"><span class="inst-avatar" style="background:' + esc(colorHash(co.name)) + '">' + esc(initials(co.name)) + '</span><div><div class="inst-name">' + esc(co.name) + '</div><div class="inst-meta">' + esc(sectorName(co.sector)) + ' · ' + esc(co.region) + ' · ' + esc(co.stage) + '</div></div></div><a class="site-link" href="' + esc(co.website) + '" target="_blank" rel="noopener">' + icon('external-link') + '<span>官网</span></a><div class="inst-foot"><span>' + esc(co.desc) + '</span></div></div>';
+      return '<div class="card company-card"><div class="inst-top"><span class="inst-avatar" style="background:' + esc(colorHash(co.name)) + '">' + esc(initials(co.name)) + '</span><div><div class="inst-name">' + esc(co.name) + '</div><div class="inst-meta">' + esc(sectorName(co.sector)) + ' · ' + esc(co.region) + (hasVerifiedData() ? ' · ' + esc(co.stage) : '') + '</div></div></div><a class="site-link" href="' + esc(co.website) + '" target="_blank" rel="noopener">' + icon('external-link') + '<span>官网</span></a><div class="inst-foot"><span>' + esc(co.desc) + '</span></div></div>';
     }).join('');
-    const compSection = '<div style="height:22px"></div><div class="card"><div class="card-head"><div class="card-title">' + icon('building') + '公司库</div><div class="card-meta">' + D.companies.length + ' 家公司</div></div></div><div class="company-grid">' + compCards + '</div>';
-    return head + toolbar + '<div style="height:14px"></div>' + grid + compSection;
+    const compSection = '<div style="height:22px"></div><div class="data-mode-note">' + icon('shield') + '<span>' + tl('名录未核验，仅展示名称与官网，规模、估值、融资等未核验数据已隐藏。') + '</span></div><div class="card"><div class="card-head"><div class="card-title">' + icon('building') + '公司库</div><div class="card-meta">' + D.companies.length + ' 家公司</div></div></div><div class="company-grid">' + compCards + '</div>';
+    const notice = hasVerifiedData() ? '' : '<div class="data-mode-note">' + icon('shield') + '<span>' + tl('机构与公司档案未核验，仅保留名称、赛道、地区与官网入口。') + '</span></div>';
+    return head + toolbar + notice + '<div style="height:14px"></div>' + grid + compSection;
   }
 
   function afterInstitutions() {
@@ -1276,6 +1293,7 @@
   }
 
   function renderSignals() {
+    if (!hasVerifiedData()) return verifiedEmptyState('信号监控', tl('信号规则只基于已核验交易运行，未核实数据不会触发信号。'));
     const all = buildSignals();
     const high = all.filter(function (s) { return s.level === 'high'; }).length;
     const active = all.length;
@@ -1435,6 +1453,7 @@
   }
 
   function renderEcosystem() {
+    if (!hasVerifiedData()) return verifiedEmptyState('生态全景', tl('募投退与跨境数据将在权威数据源接入后展示。'));
     const f = D.flows;
     const fund = f.fundraising.values[f.fundraising.values.length - 1];
     const ipo = f.exits.ipos[f.exits.ipos.length - 1];
@@ -1482,6 +1501,7 @@
   }
 
   function renderMarkets() {
+    if (!D.markets || !D.markets.verified) return verifiedEmptyState('全球市场脉搏', tl('行情数据源未接入，接入后自动展示外汇、贵金属、能源、大宗商品与股指期货走势。'));
     const m = D.markets;
     const quotes = m.quotes.map(function (q) {
       const cls = q.up ? 'trend-up' : 'trend-down';
@@ -1512,6 +1532,7 @@
   }
 
   function renderIntel() {
+    if (!hasVerifiedData()) return verifiedEmptyState('AI研判', tl('AI 研判仅基于已核验数据生成，数据源接入前不出具结论。'));
     const mode = state.llmOn && state.llmKey ? 'DeepSeek 增强' : '本地分析引擎';
     const head = '<section class="page-head"><div><h1>AI研判</h1><p class="page-sub">自动生成的投资环境解读与机会扫描</p></div><div class="head-actions intel-toolbar"><span class="engine-pill">' + icon('sparkles') + esc(mode) + '</span><button class="btn accent" id="intel-gen">' + icon('zap') + '重新生成</button><button class="btn ghost" id="intel-copy">' + icon('copy') + '复制摘要</button><button class="btn ghost" id="intel-print">' + icon('print') + '导出PDF</button><button class="btn ghost" id="intel-settings">' + icon('settings') + '引擎设置</button></div></section>';
     const r = localReport();
@@ -1601,6 +1622,10 @@
   function openCompany(name) {
     const co = COMP_MAP.get(name);
     if (!co) return;
+    if (!hasVerifiedData()) {
+      openDrawer('<div class="drawer-head"><span class="cell-avatar" style="width:44px;height:44px;font-size:15px;border-radius:12px;background:' + esc(sectorColor(co.sector)) + '">' + esc(initials(name)) + '</span><div class="ht"><h3>' + esc(name) + '</h3><div class="sub">' + esc(sectorName(co.sector)) + ' · ' + esc(co.region) + '</div><a class="site-link" href="' + esc(co.website) + '" target="_blank" rel="noopener">' + icon('external-link') + '<span>官网</span></a></div><button class="icon-btn" data-close-drawer>' + icon('x') + '</button></div><div class="drawer-body"><div class="drawer-section"><div class="data-mode-note">' + icon('shield') + '<span>' + tl('机构与公司档案未核验，仅保留名称、赛道、地区与官网入口。') + '</span></div></div></div>');
+      return;
+    }
     const list = (byCompany[name] || []).slice().sort(function (a, b) { return a.date < b.date ? 1 : -1; });
     const total = sum(list, function (d) { return d.amount; });
     const insts = new Set();
@@ -1621,6 +1646,10 @@
   function openInstitution(name) {
     const it = INST_MAP.get(name);
     if (!it) return;
+    if (!hasVerifiedData()) {
+      openDrawer('<div class="drawer-head"><span class="cell-avatar" style="width:44px;height:44px;font-size:15px;border-radius:12px;background:' + esc(colorHash(name)) + '">' + esc(initials(name)) + '</span><div class="ht"><h3>' + esc(name) + '</h3><div class="sub">' + esc(it.type) + ' · ' + esc(it.region) + '</div><a class="site-link" href="' + esc(it.website) + '" target="_blank" rel="noopener">' + icon('external-link') + '<span>官网</span></a></div><button class="icon-btn" data-close-drawer>' + icon('x') + '</button></div><div class="drawer-body"><div class="drawer-section"><div class="data-mode-note">' + icon('shield') + '<span>' + tl('机构与公司档案未核验，仅保留名称、赛道、地区与官网入口。') + '</span></div></div></div>');
+      return;
+    }
     const st = instStats(name);
     const list = (byInst[name] || []).slice().sort(function (a, b) { return a.date < b.date ? 1 : -1; }).slice(0, 8);
     const dealRows = list.map(function (d) {
@@ -1797,7 +1826,9 @@
       buildData();
       buildDerived();
       const upd = document.getElementById('side-update');
-      if (upd && data.meta && data.meta.asOf) upd.textContent = tl('数据截至 ') + data.meta.asOf;
+      if (upd && data.meta) {
+        upd.textContent = data.meta.dataMode === 'verified-only' ? tl('数据源接入中') + ' · ' + tl('已核验 0 条') : tl('数据截至 ') + data.meta.asOf;
+      }
       return true;
     } catch (e) { return false; }
   }

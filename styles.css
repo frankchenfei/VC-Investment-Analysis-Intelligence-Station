@@ -751,3 +751,17 @@ table.tbl { width: 100%; border-collapse: collapse; font-size: 13px; }
 @media (max-width: 1180px) {
   .flow-live { display: none; }
 }
+
+/* Verified-only publishing mode */
+.verified-empty { max-width: 780px; margin: 8px auto; padding: 36px 32px; text-align: center; }
+.verified-empty .ve-icon { width: 52px; height: 52px; margin: 0 auto 14px; border-radius: 14px; display: flex; align-items: center; justify-content: center; background: var(--accent-soft); color: var(--accent); }
+.verified-empty .ve-icon svg { width: 26px; height: 26px; }
+.verified-empty h3 { margin: 0 0 8px; font-size: 18px; }
+.verified-empty p { margin: 0 auto 18px; max-width: 580px; color: var(--muted); font-size: 13px; line-height: 1.7; }
+.verified-empty .ve-list { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-bottom: 16px; }
+.verified-empty .ve-item { display: inline-flex; align-items: center; gap: 5px; font-size: 12px; color: var(--ink-2); background: var(--line-2); border: 1px solid var(--line); padding: 5px 9px; border-radius: 999px; }
+.verified-empty .ve-item svg { width: 12px; height: 12px; color: var(--accent); }
+.verified-empty .ve-note { font-size: 12px; color: var(--faint); border-top: 1px dashed var(--line); padding-top: 14px; }
+.data-mode-note { display: flex; align-items: center; gap: 8px; margin: 10px 0 0; padding: 10px 12px; background: var(--amber-soft); border: 1px solid rgba(217, 119, 6, .22); color: #92400e; border-radius: 8px; font-size: 12.5px; }
+.data-mode-note svg { width: 14px; height: 14px; flex: none; }
+.inst-grid.unverified .inst-aum, .inst-grid.unverified .inst-foot, .company-grid.unverified .inst-foot { display: none; }
